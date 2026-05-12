@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TracenDle: Pretty Wordle</title>
+    <title>UmaWordle: Pretty Wordle</title>
     <link rel="icon" type="image/jpeg" href="images/small logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
@@ -16,8 +16,8 @@
     <header class="w-full max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center py-4 mb-6 border-b-4 border-green-700 gap-4">
     <div class="flex items-center flex-shrink-0">
         <img src="images/umawordle logo.png" 
-             alt="TracenDle Logo" 
-             class="h-20 md:h-20 w-auto cursor-pointer object-contain" 
+             alt="UmaWordle Logo" 
+             class="h-10 md:h-12 w-auto cursor-pointer object-contain" 
              onclick="showMenu()">
     </div>
 
@@ -38,6 +38,7 @@
 </header>
 
     <div id="menu-screen" class="w-full max-w-md bg-white rounded-xl shadow-2xl p-8 flex flex-col gap-4">
+        <!-- Tab Switcher -->
         <div class="flex bg-gray-100 p-1 rounded-xl mb-2">
             <button id="tab-uma" onclick="switchGameType('uma')" class="flex-1 py-2 rounded-lg font-bold transition-all bg-white shadow-sm text-green-700">Umamusume</button>
             <button id="tab-course" onclick="switchGameType('course')" class="flex-1 py-2 rounded-lg font-bold transition-all text-gray-500 hover:text-gray-700">G1 Race</button>
@@ -112,23 +113,19 @@
     </div>
 
     <div id="game-screen" class="hidden w-full max-w-6xl flex flex-col items-center">
-        <div id="game-toolbar" class="flex items-center w-full mb-3 px-2 gap-2" style="min-height:44px;">
-            <button onclick="showMenu()" 
-                style="min-width:80px; min-height:44px; padding: 8px 14px; touch-action:manipulation; -webkit-tap-highlight-color:transparent;"
-                class="flex-shrink-0 bg-green-700 text-white font-bold rounded-lg shadow active:scale-95 transition-transform text-sm">
-                ← Menu
-            </button>
-            <div id="mode-indicator" class="flex-1 text-center font-black uppercase text-sm truncate" style="color:#dc2626;"></div>
-            <div id="score-display" class="flex-shrink-0 font-bold text-green-800 text-sm text-right" style="min-width:80px;"></div>
+        <div class="flex justify-between w-full mb-4 px-2">
+            <button onclick="showMenu()" class="text-green-700 font-bold hover:underline">← Menu</button>
+            <div id="mode-indicator" class="font-black uppercase text-red-600"></div>
+            <div id="score-display" class="font-bold text-green-800"></div>
         </div>
-        <div class="table-wrapper w-full">
-            <table id="guesses" class="w-full text-center border-separate border-spacing-1 ">
+        <div class="table-wrapper">
+            <table id="guesses" class="w-full text-center border-separate border-spacing-1 min-w-[600px]">
                 <thead id="guess-head">
                 </thead>
                 <tbody id="guess-grid"></tbody>
             </table>
         </div>
-        <div id="input-container" class="mt-4 w-full max-w-md pb-20 mx-auto">
+        <div id="input-container" class="mt-8 w-full max-w-md pb-20">
             <div class="relative">
                 <input type="text" id="uma-input" placeholder="Enter name..." autocomplete="off"
                     class="w-full p-4 rounded-full border-2 border-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 shadow-md">
@@ -136,9 +133,9 @@
             </div>
             <p class="text-center mt-2 text-sm text-gray-500">Guesses remaining: <span id="remaining-guesses" class="font-bold text-red-600">5</span></p>
         </div>
-        
     </div>
 
+    <!-- Modals are kept similar but will be updated via JS for content -->
     <div id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 z-[60]">
         <div class="bg-white rounded-2xl p-6 max-w-lg w-full shadow-2xl max-h-[90vh] overflow-y-auto text-left">
             <div class="flex justify-between items-center mb-4">
@@ -146,6 +143,7 @@
                 <button onclick="toggleHelp(false)" aria-label="Close help" class="text-gray-400 hover:text-black text-2xl">&times;</button>
             </div>
             <div id="help-content" class="space-y-4 text-sm text-gray-700">
+                <!-- Dynamic Help Content -->
             </div>
             <button onclick="toggleHelp(false)" class="w-full mt-6 btn-primary text-white font-bold py-3 rounded-lg">Got it!</button>
         </div>
@@ -181,6 +179,7 @@
                         <h3 id="target-name" class="text-2xl font-black text-green-700"></h3>
                     </div>
                     <div id="target-stats-grid" class="space-y-4">
+                        <!-- Dynamic stats grid for result -->
                     </div>
                 </div>
                 
@@ -211,7 +210,7 @@
             
             <div class="space-y-4 text-gray-600">
                 <div class="bg-green-50 p-3 rounded-lg border border-green-100">
-                    <p class="font-bold text-green-800 mb-1">TracenDle: Pretty Wordle Official Release</p>
+                    <p class="font-bold text-green-800 mb-1">Uma Wordle: Pretty Wordle Official Release</p>
                     <p class="text-sm">Test your knowledge of Umamusume and their aptitudes or G1 Race courses!</p>
                 </div>
                 
