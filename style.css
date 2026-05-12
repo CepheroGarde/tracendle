@@ -187,7 +187,6 @@ body.dark .text-blue-800 {
     color: #93c5fd;
 }
 
-/* Smooth animation for answer row and cell reveal */
 .animate-flip {
     animation: flip-scale 0.45s ease both;
     transform-origin: center;
@@ -425,19 +424,17 @@ header {
     
 }
 
-/* Dark Mode adjustment for Header Border */
 body.dark header {
-    border-color: #059669; /* Slightly brighter green for dark mode visibility */
+    border-color: #059669; 
 }
 
-/* Resize race logos in the guesses table for better visibility */
 #guesses img, #guess-grid img {
-    max-width: 60px;
-    max-height: 60px;
-    width: auto;
+    width: 100%;            
+    max-width: 80px;        
     height: auto;
+    aspect-ratio: 1 / 1;    
     object-fit: contain;
-    border-radius: 6px; 
+    border-radius: 4px;
     display: block;
     margin: 0 auto;
 }
@@ -447,8 +444,8 @@ body.dark header {
     #game-screen,
     .help-modal > div,
     .result-modal > div > div {
-    width: 90%;         /* Almost full width on mobile */
-    max-width: 500px;   /* Constrained on desktop */
+    width: 90%;         
+    max-width: 500px;   
     margin: auto;
 }
 
@@ -669,8 +666,8 @@ body.dark .border-t {
 .result-modal img {
     max-width: 100%;
     height: auto;
-    max-height: 250px; /* Adjust based on preference */
-    object-fit: contain !important; /* Forces the full image to show */
+    max-height: 250px; 
+    object-fit: contain !important; 
     display: block;
 }
 
@@ -703,7 +700,6 @@ body.dark .border-t {
     margin: 0 auto;
 }
 
-/* Fix for the result image in the modal */
 .result-modal img {
     width: auto;
     max-width: 100%;
@@ -756,7 +752,6 @@ main {
     overflow-x: hidden;
 }
 
-/* Individual square for each aptitude */
 .attr-box {
     aspect-ratio: 1 / 1;
     display: flex;
@@ -804,7 +799,6 @@ td, th {
     align-items: center;
 }
 
-/* Game toolbar — sticky, always tappable */
 #game-toolbar {
     position: sticky;
     top: 0;
@@ -826,31 +820,33 @@ body.dark #game-toolbar {
 
 .table-wrapper {
     width: 100%;
-    overflow-x: hidden; /* NO horizontal scroll */
+    overflow-x: hidden; 
     padding-bottom: 8px;
 }
 
 #guesses {
     width: 100%;
-    min-width: unset; /* Remove forced min-width */
+    min-width: unset; 
     border-collapse: separate;
-    table-layout: fixed; /* Fixed layout so columns respect widths */
+    table-layout: fixed; 
 }
 
-/* Name column takes fixed small portion, data cells share the rest */
 #guesses .name-col {
     width: 13%;
 }
 
 #guesses th:not(.name-col),
 #guesses td:not(.name-col) {
-    width: calc(87% / 10); /* evenly distribute remaining space among data cols */
+    width: calc(87% / 10); 
 }
 
-/* Course mode has only 4 data cols */
+#guesses.course-mode .name-col {
+    width: 15%; 
+}
+
 #guesses.course-mode th:not(.name-col),
 #guesses.course-mode td:not(.name-col) {
-    width: calc(87% / 4);
+    width: calc(85% / 4); 
 }
 
 @media (max-width: 768px) {
@@ -923,6 +919,22 @@ body.dark #game-toolbar {
     .name-col {
         min-width: unset;
         width: 12%;
+    }
+}
+
+@media (max-width: 600px) {
+    .course-mode img {
+        width: 14vw !important;    
+        height: 14vw !important;
+        max-width: 65px !important; 
+        max-height: 65px !important;
+    }
+    #guesses.course-mode td {
+        padding: 4px 2px !important;
+    }
+
+    .table-wrapper {
+        overflow-x: auto; 
     }
 }
 

@@ -38,7 +38,6 @@
 </header>
 
     <div id="menu-screen" class="w-full max-w-md bg-white rounded-xl shadow-2xl p-8 flex flex-col gap-4">
-        <!-- Tab Switcher -->
         <div class="flex bg-gray-100 p-1 rounded-xl mb-2">
             <button id="tab-uma" onclick="switchGameType('uma')" class="flex-1 py-2 rounded-lg font-bold transition-all bg-white shadow-sm text-green-700">Umamusume</button>
             <button id="tab-course" onclick="switchGameType('course')" class="flex-1 py-2 rounded-lg font-bold transition-all text-gray-500 hover:text-gray-700">G1 Race</button>
@@ -113,7 +112,6 @@
     </div>
 
     <div id="game-screen" class="hidden w-full max-w-6xl flex flex-col items-center">
-        <!-- Top toolbar: always visible and tappable on mobile -->
         <div id="game-toolbar" class="flex items-center w-full mb-3 px-2 gap-2" style="min-height:44px;">
             <button onclick="showMenu()" 
                 style="min-width:80px; min-height:44px; padding: 8px 14px; touch-action:manipulation; -webkit-tap-highlight-color:transparent;"
@@ -123,7 +121,6 @@
             <div id="mode-indicator" class="flex-1 text-center font-black uppercase text-sm truncate" style="color:#dc2626;"></div>
             <div id="score-display" class="flex-shrink-0 font-bold text-green-800 text-sm text-right" style="min-width:80px;"></div>
         </div>
-        <!-- Table sits at the top, right under the toolbar -->
         <div class="table-wrapper w-full">
             <table id="guesses" class="w-full text-center border-separate border-spacing-1 ">
                 <thead id="guess-head">
@@ -142,7 +139,6 @@
         
     </div>
 
-    <!-- Modals are kept similar but will be updated via JS for content -->
     <div id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 z-[60]">
         <div class="bg-white rounded-2xl p-6 max-w-lg w-full shadow-2xl max-h-[90vh] overflow-y-auto text-left">
             <div class="flex justify-between items-center mb-4">
@@ -150,7 +146,6 @@
                 <button onclick="toggleHelp(false)" aria-label="Close help" class="text-gray-400 hover:text-black text-2xl">&times;</button>
             </div>
             <div id="help-content" class="space-y-4 text-sm text-gray-700">
-                <!-- Dynamic Help Content -->
             </div>
             <button onclick="toggleHelp(false)" class="w-full mt-6 btn-primary text-white font-bold py-3 rounded-lg">Got it!</button>
         </div>
@@ -186,7 +181,6 @@
                         <h3 id="target-name" class="text-2xl font-black text-green-700"></h3>
                     </div>
                     <div id="target-stats-grid" class="space-y-4">
-                        <!-- Dynamic stats grid for result -->
                     </div>
                 </div>
                 
