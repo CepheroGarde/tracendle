@@ -21,7 +21,7 @@ The game features two distinct categories:
 ### <img src="images\silence suzuka chibi.png" width="60"> Umamusume Mode
 Guess the hidden Umamusume based on their **Base Aptitudes**. 
 * **Distance:** Sprint, Mile, Medium, Long
-* **Strategy:** Front (Runner), Pace (Leader), Late (Betweener), End (Chaser)
+* **Strategy:** Front Runner, Pace Chaser, Late Surger, End Closer
 * **Surface:** Turf, Dirt
 
 ### 🏁 G1 Race Mode
