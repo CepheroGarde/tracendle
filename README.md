@@ -1,4 +1,4 @@
-# UmaWordle: Pretty Wordle
+# Tracendle: Pretty Wordle
 
 <p align="center">
   <img src="images/umawordle logo.png" alt="UmaWordle Logo" width="400">
