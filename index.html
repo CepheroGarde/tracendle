@@ -7,6 +7,17 @@
     <link rel="icon" type="image/jpeg" href="images/small logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <meta name="title" content="TracenDle: Pretty Wordle">
+    <meta name="description" content="Test your knowledge of Umamusume aptitudes and G1 Race courses in this daily puzzle game!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tracendle.duckdns.org/"> <meta property="og:title" content="TracenDle: Pretty Wordle">
+    <meta property="og:description" content="Test your knowledge of Umamusume aptitudes and G1 Race courses in this daily puzzle game!">
+    <meta property="og:image" content="https://tracendle.duckdns.org/images/og-preview.png"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tracendle.duckdns.org/">
+    <meta property="twitter:title" content="TracenDle: Pretty Wordle">
+    <meta property="twitter:description" content="Can you guess the Umamusume based on their aptitudes? Play TracenDle now!">
+    <meta property="twitter:image" content="https://tracendle.duckdns.org/images/og-preview.png">
+    <meta name="theme-color" content="#15803d">
 </head>
 <body class="min-h-screen flex flex-col items-center p-4">
     <main class="w-full max-w-2xl flex flex-col items-center px-2">
@@ -118,7 +129,7 @@
             </div>
         </footer>
     </div>
-    <div id="game-toolbar" class="flex items-center w-full mb-3 px-2 gap-2" style="min-height:44px;">
+<div id="game-toolbar" class="flex items-center w-full mb-3 px-2 gap-2" style="min-height:44px;">
             <button onclick="showMenu()" 
                 style="min-width:80px; min-height:44px; padding: 8px 14px; touch-action:manipulation; -webkit-tap-highlight-color:transparent;"
                 class="flex-shrink-0 bg-green-700 text-white font-bold rounded-lg shadow active:scale-95 transition-transform text-sm">
@@ -127,6 +138,8 @@
             <div id="mode-indicator" class="flex-1 text-center font-black uppercase text-sm truncate" style="color:#dc2626;"></div>
             <div id="score-display" class="flex-shrink-0 font-bold text-green-800 text-sm text-right" style="min-width:80px;"></div>
         </div>
+    <div id="game-screen" class="hidden w-full max-w-6xl flex flex-col items-center">
+        
         <div class="table-wrapper w-full">
             <table id="guesses" class="w-full text-center border-separate border-spacing-1 ">
                 <thead id="guess-head">
@@ -142,7 +155,6 @@
             </div>
             <p class="text-center mt-2 text-sm text-gray-500">Guesses remaining: <span id="remaining-guesses" class="font-bold text-red-600">5</span></p>
         </div>
-    <div id="game-screen" class="hidden w-full max-w-6xl flex flex-col items-center">
         
     </div>
 
