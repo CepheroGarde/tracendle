@@ -861,7 +861,6 @@ body.dark #result-msg {
     color: #94a3b8;
 }
 
-/* Streak Score Banner — matches the modal card surface */
 #loss-streak-banner {
     background: #f8fafc;
     border: 2px solid #e2e8f0;
@@ -936,13 +935,11 @@ body.dark .streak-banner-sub {
     padding: 1rem 1.25rem 1.25rem;
     overflow-y: auto;
     flex: 1;
-    /* hide scrollbar but allow scroll if ever needed */
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
 .result-modal-body::-webkit-scrollbar { display: none; }
 
-/* Target header: image + name side by side */
 .result-target-thumb {
     width: 60px;
     height: 60px;
@@ -952,12 +949,10 @@ body.dark .streak-banner-sub {
     flex-shrink: 0;
 }
 
-/* Section wrapper */
 .result-stat-section {
     margin-bottom: 6px;
 }
 
-/* Section title row */
 .result-stat-section-title {
     font-size: 9px;
     font-weight: 700;
@@ -967,14 +962,12 @@ body.dark .streak-banner-sub {
     display: block;
 }
 
-/* Horizontal pill row for stats */
 .result-stat-row {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
 }
 
-/* Individual stat pill */
 .result-stat-pill {
     display: flex;
     flex-direction: column;
@@ -1005,7 +998,6 @@ body.dark .streak-banner-sub {
     line-height: 1;
 }
 
-/* Dark mode for new styles */
 body.dark .result-stat-pill {
     background: #1e293b;
     border-color: #334155;
@@ -1014,7 +1006,6 @@ body.dark .result-stat-pill-label { color: #64748b; }
 body.dark .result-stat-pill-value { color: #f1f5f9; }
 body.dark .result-target-thumb { background: #334155; }
 
-/* Mobile tweaks */
 @media (max-width: 480px) {
     .result-modal-body { padding: 0.75rem 0.9rem 1rem; }
     .result-target-thumb { width: 50px; height: 50px; }
