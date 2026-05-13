@@ -754,5 +754,19 @@
     "end": "G",
     "turf": "A",
     "dirt": "G"
+  },
+  {
+    "name": "Mejiro Palmer",
+    "image": "images/uma/Mejiro_Palmer.webp",
+    "sprint": "G",
+    "mile": "F",
+    "med": "A",
+    "long": "A",
+    "front": "A",
+    "pace": "E",
+    "late": "F",
+    "end": "G",
+    "turf": "A",
+    "dirt": "G"
   }
 ]

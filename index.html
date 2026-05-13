@@ -18,6 +18,13 @@
     <meta property="twitter:description" content="Can you guess the Umamusume based on their aptitudes? Play TracenDle now!">
     <meta property="twitter:image" content="https://tracendle.duckdns.org/images/umawordle logo.png">
     <meta name="theme-color" content="#15803d">
+    <script>
+        // Apply theme before first paint to prevent flash
+        (function(){
+            var t = localStorage.getItem('theme');
+            if (t === null || t === 'dark') document.documentElement.classList.add('dark-pre');
+        })();
+    </script>
 </head>
 <body class="min-h-screen flex flex-col items-center p-0">
     <header class="w-full max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center py-4 mb-6 border-b-4 border-green-700 gap-4">
@@ -140,26 +147,28 @@
             <div id="score-display" class="flex-shrink-0 font-bold text-green-800 text-sm text-right" style="min-width:80px;"></div>
         </div>
         
-        <div class="text-sm font-bold text-gray-500">
-    Guesses Remaining: <span id="remaining-guesses"></span>
-    
-</div>
+        <div class="text-sm font-bold text-gray-500 mb-2">
+            Guesses Remaining: <span id="remaining-guesses"></span>
+        </div>
         
         <div class="table-wrapper w-full">
-            <table id="guesses" class="w-full text-center border-separate border-spacing-1 ">
-                <thead id="guess-head">
-                </thead>
+            <table id="guesses" class="w-full text-center border-separate border-spacing-1">
+                <thead id="guess-head"></thead>
                 <tbody id="guess-grid"></tbody>
             </table>
         </div>
-        
-        
-    </div>
-    <div id="input-container" class="relative hidden w-full max-w-md mx-auto">
-        <input type="text" id="uma-input" 
-           class="w-full p-3 rounded-lg border-2 border-green-700" 
-           placeholder="Enter Umamusume name...">
-        <div id="autocomplete-list" class="hidden"></div>
+
+        <!-- Search + Picker panel (virtual keyboard style) -->
+        <div id="input-container" class="hidden w-full mt-3">
+            <div class="picker-search-bar">
+                <input type="text" id="uma-input"
+                    class="w-full p-3 rounded-lg border-2 border-green-700"
+                    placeholder="Search...">
+            </div>
+            <div id="picker-panel">
+                <div id="picker-grid"></div>
+            </div>
+        </div>
     </div>
     
     </div>
@@ -180,7 +189,7 @@
         <div class="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden animate-fade-in">
             <div id="modal-header-band" class="h-4 w-full bg-green-600"></div>
             
-            <div class="p-8 max-h-[90vh] overflow-y-auto">
+            <div class="p-8 pb-10 max-h-[90vh] overflow-y-auto">
                 <div class="flex justify-end mb-4">
                     <button onclick="closeModal()" aria-label="Close result" class="text-gray-400 hover:text-black text-2xl">&times;</button>
                 </div>
@@ -200,7 +209,7 @@
                     <div id="ranked-result-profile" class="hidden w-full mb-6"></div>
 
                 <p id="result-msg" class="text-slate-500 text-center text-sm font-medium mb-2 px-4"></p>
-                <div id="result-target-card" class="bg-slate-50 rounded-2xl p-6 border-2 border-slate-100 mb-8">
+                <div id="result-target-card" class="bg-slate-50 rounded-2xl p-6 border-2 border-slate-100 mb-6 mt-2">
                     <div class="text-center mb-4">
                         <span id="target-label" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Winning Umamusume</span>
                         <h3 id="target-name" class="text-2xl font-black text-green-700"></h3>

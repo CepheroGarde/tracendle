@@ -3,6 +3,16 @@
     --uma-red: #d32f2f;
     --uma-bg: #121212;
 }
+
+/* Anti-flicker: applied instantly before JS runs */
+html.dark-pre body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+html.dark-pre #menu-screen {
+    background-color: #1e293b;
+    color: #e2e8f0;
+}
 body {
     background-image: url('images/trace background.jpg');
     background-size: cover;
@@ -128,6 +138,14 @@ body.dark #remaining-guesses {
     color: #ef4444;
 }
 
+#guesses-remaining-label {
+    color: #374151;
+}
+
+body.dark #guesses-remaining-label {
+    color: #cbd5e1;
+}
+
 
 body.dark h1 {
     color: #10b981;
@@ -211,7 +229,7 @@ body.dark .text-blue-800 {
 }
 
 .wordle-flip {
-    animation: wordle-flip 0.38s ease-in-out both;
+    animation: wordle-flip 0.5s ease-in-out both;
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
@@ -372,9 +390,9 @@ body.dark .theme-toggle .sun-icon { display: none; }
 body.dark .theme-toggle .moon-icon { display: block; }
 
 
-.correct { background-color: #6aaa64 !important; color: white !important; }
-.present { background-color: #c9b458 !important; color: white !important; }
-.absent { background-color: #787c7e !important; color: white !important; }
+.correct { background-color: #6aaa64 !important; color: white !important; font-weight: 900 !important; letter-spacing: 0.04em; }
+.present { background-color: #c9b458 !important; color: white !important; font-weight: 900 !important; letter-spacing: 0.04em; }
+.absent  { background-color: #787c7e !important; color: white !important; font-weight: 900 !important; letter-spacing: 0.04em; }
 
 
 .rank-up::after { content: ' ↑'; font-size: 0.8em; opacity: 0.8; }
@@ -441,8 +459,39 @@ body.dark .theme-toggle .moon-icon { display: block; }
 }
 
 
-header {
-    transition: all 0.3s ease;
+/* Fix: header small buttons visibility in light mode */
+header button[aria-label="Open changelog"],
+header button[aria-label="Toggle theme"],
+header button[aria-label="Open help"] {
+    border-color: #6b7280;
+    color: #374151;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+header button[aria-label="Open changelog"]:hover,
+header button[aria-label="Toggle theme"]:hover,
+header button[aria-label="Open help"]:hover {
+    background-color: #e5e7eb;
+    border-color: #4b5563;
+    color: #111827;
+}
+
+body.dark header button[aria-label="Open changelog"],
+body.dark header button[aria-label="Toggle theme"],
+body.dark header button[aria-label="Open help"] {
+    border-color: #4b5563;
+    color: #cbd5e1;
+    background-color: rgba(30, 41, 59, 0.85);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+body.dark header button[aria-label="Open changelog"]:hover,
+body.dark header button[aria-label="Toggle theme"]:hover,
+body.dark header button[aria-label="Open help"]:hover {
+    background-color: #334155;
+    border-color: #64748b;
+    color: #f1f5f9;
 }
 
 @media (max-width: 768px) {
@@ -744,7 +793,83 @@ body.dark .border-t {
     transition: all 0.3s ease;
     width: 95%;          
     max-width: 600px;    
-    margin: 0 auto;
+    margin: 0 auto 1.5rem auto;
+}
+
+/* Fix: ensure Continue button area never overlaps result card */
+#result-modal .p-8 {
+    padding-bottom: 2rem;
+}
+
+/* Fix dark mode result modal background & text */
+body.dark #result-modal > div {
+    background-color: #1e293b;
+}
+
+body.dark #result-target-card {
+    background-color: #0f172a;
+    border-color: #334155;
+}
+
+body.dark #result-target-card #target-name,
+body.dark #result-target-card .text-green-700 {
+    color: #34d399;
+}
+
+body.dark #result-target-card .text-slate-400,
+body.dark #result-target-card #target-label {
+    color: #94a3b8;
+}
+
+/* Fix dark mode: stat tag labels and values inside result card */
+body.dark #result-target-card .stat-tag-label {
+    color: #94a3b8;
+}
+
+body.dark #result-target-card .stat-tag-value {
+    color: #e2e8f0;
+}
+
+body.dark #result-target-card .stat-tag {
+    background: #1e293b;
+    border-color: #475569;
+}
+
+/* Fix dark mode: aptitude grade letters in result target card */
+body.dark #result-target-card .correct,
+body.dark #result-target-card .attr-box {
+    color: #ffffff;
+}
+
+/* Fix: stat boxes inside result target card */
+body.dark #result-target-card .bg-white {
+    background-color: #1e293b !important;
+    border-color: #475569 !important;
+}
+
+/* Fix: stat value text (the A/B/C grade letters and other values) */
+body.dark #result-target-card .font-black {
+    color: #f1f5f9 !important;
+}
+
+/* Fix: stat label text */
+body.dark #result-target-card .text-slate-400 {
+    color: #94a3b8 !important;
+}
+
+/* Fix: section title colors — brighten for dark bg */
+body.dark #result-target-card h4[class*="text-green-600"] { color: #34d399 !important; }
+body.dark #result-target-card h4[class*="text-blue-600"]  { color: #60a5fa !important; }
+body.dark #result-target-card h4[class*="text-purple-600"]{ color: #a78bfa !important; }
+body.dark #result-target-card h4[class*="text-orange-600"]{ color: #fb923c !important; }
+body.dark #result-target-card h4[class*="text-red-600"]   { color: #f87171 !important; }
+
+/* Fix dark mode result title and message */
+body.dark #result-title {
+    color: #e2e8f0;
+}
+body.dark #result-msg {
+    color: #94a3b8;
 }
 
 .result-modal img {
@@ -995,29 +1120,141 @@ body.dark .head-course { background-color: #064e3b; color: #34d399; }
     position: relative;
 }
 
-#autocomplete-list {
-    position: absolute;
-    z-index: 9999;
-    left: 0;
-    right: 0;
-    top: 100%;
-    max-height: 220px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: white;
-    border: 1px solid #d1d5db;
-    border-top: none;
-    border-bottom-left-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.15);
-    width: 100%;
-    box-sizing: border-box;
+/* ── Picker panel (virtual keyboard style) ─────────────────── */
+.picker-search-bar {
+    padding: 4px 0 4px;
 }
 
-body.dark #autocomplete-list {
-    background-color: #1e293b;
-    border-color: #374151;
-    border-top: none;
+#picker-panel {
+    width: 100%;
+    background: rgba(255,255,255,0.97);
+    border: 2px solid #d1fae5;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    max-height: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-top: 4px;
+}
+
+body.dark #picker-panel {
+    background: rgba(15,23,42,0.97);
+    border-color: #064e3b;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+#picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+    gap: 6px;
+}
+
+.picker-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 6px 4px 5px;
+    border: 2px solid transparent;
+    background: #f1f5f9;
+    transition: background 0.12s, border-color 0.12s, transform 0.1s;
+    text-align: center;
+    position: relative;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.picker-card:hover,
+.picker-card:active {
+    background: #dcfce7;
+    border-color: #4ade80;
+    transform: scale(1.05);
+}
+
+.picker-card.potential-match {
+    border-color: #fbbf24;
+    background: #fffbeb;
+}
+
+.picker-card.potential-match:hover,
+.picker-card.potential-match:active {
+    background: #fef3c7;
+    border-color: #f59e0b;
+    transform: scale(1.05);
+}
+
+.picker-card-img {
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #e2e8f0;
+    margin-bottom: 4px;
+    display: block;
+    pointer-events: none;
+}
+
+.picker-card-name {
+    font-size: 0.58rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.2;
+    word-break: break-word;
+    max-width: 100%;
+    pointer-events: none;
+}
+
+.picker-card-badge {
+    font-size: 0.65rem;
+    margin-top: 1px;
+    pointer-events: none;
+}
+
+.picker-empty {
+    text-align: center;
+    padding: 16px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    grid-column: 1 / -1;
+}
+
+body.dark .picker-card {
+    background: #1e293b;
+}
+
+body.dark .picker-card:hover,
+body.dark .picker-card:active {
+    background: #134e4a;
+    border-color: #34d399;
+}
+
+body.dark .picker-card.potential-match {
+    background: #292524;
+    border-color: #d97706;
+}
+
+body.dark .picker-card.potential-match:hover,
+body.dark .picker-card.potential-match:active {
+    background: #3d2e0a;
+    border-color: #f59e0b;
+}
+
+body.dark .picker-card-name {
+    color: #e2e8f0;
+}
+
+@media (max-width: 480px) {
+    #picker-grid {
+        grid-template-columns: repeat(auto-fill, minmax(62px, 1fr));
+        gap: 5px;
+    }
+    .picker-card-img {
+        width: 48px;
+        height: 48px;
+    }
 }
 
 @media (max-width: 768px) {
