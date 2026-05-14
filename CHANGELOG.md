@@ -1,5 +1,10 @@
 Change Log
 
+## v1.1 NEW STATS
+
+* JBC Series finally added on G1 Races Category
+* Statistics Page: Full stats window with per-mode streak tracking (Daily, Easy, Normal, Hard) for both Umamusume and G1 Race, plus the ability to reset your stats!
+* Bug Fix: Normal & Hard Mode guesses now properly restore when re-entering the game
 
 ## v1.0 Official Release
 
