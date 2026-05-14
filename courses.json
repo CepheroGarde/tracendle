@@ -1,24 +1,202 @@
 [
-  { "name": "Hopeful Stakes", "image": "images/races/Hopeful Stakes.png", "length": "2000", "surface": "Turf", "turn": "Right ↪", "location": "Nakayama" },
-  { "name": "Oka Sho", "image": "images/races/Oka_Sho.png", "length": "1600", "surface": "Turf", "turn": "Right ↪", "location": "Hanshin" },
-  { "name": "Satsuki Sho", "image": "images/races/Satsuki Sho.png", "length": "2000", "surface": "Turf", "turn": "Right ↪", "location": "Nakayama" },
-  { "name": "NHK Mile Cup", "image": "images/races/NHK Mile Cup.png", "length": "1600", "surface": "Turf", "turn": "Left ↩", "location": "Tokyo" },
-  { "name": "Japanese Oak", "image": "images/races/Japanese Oak.png", "length": "2400", "surface": "Turf", "turn": "Left ↩", "location": "Tokyo" },
-  { "name": "Tokyo Yushun/Japanese Derby", "image": "images/races/Japanese Derby.png", "length": "2400", "surface": "Turf", "turn": "Left ↩", "location": "Tokyo" },
-  { "name": "Tenno Sho (Autumn)", "image": "images/races/Tenno Sho.png", "length": "2000", "surface": "Turf", "turn": "Right ↪", "location": "Tokyo" },
-  { "name": "Tenno Sho (Spring)", "image": "images/races/Tenno Sho Spring.png", "length": "3200", "surface": "Turf", "turn": "Right ↪", "location": "Kyoto" },
-  { "name": "Arima Kinen", "image": "images/races/arima_kinen.png", "length": "2500", "surface": "Turf", "turn": "Right ↪", "location": "Nakayama" },
-  { "name": "Champions Cup", "image": "images/races/Champions Cup.png", "length": "1800", "surface": "Dirt", "turn": "Left ↩", "location": "Chukyo" },
-  { "name": "Japan Cup", "image": "images/races/Japan Cup.png", "length": "2400", "surface": "Turf", "turn": "Left ↩", "location": "Tokyo" },
-  { "name": "Queen Elizabeth II Cup", "image": "images/races/Queen Elizabeth II Cup.png", "length": "2200", "surface": "Turf", "turn": "Right ↪", "location": "Kyoto" },
-  { "name": "Mile Championship", "image": "images/races/Mile Championship.png", "length": "1600", "surface": "Turf", "turn": "Right ↪", "location": "Kyoto" },
-  { "name": "Victoria Mile", "image": "images/races/Victoria Mile.png", "length": "1600", "surface": "Turf", "turn": "Left ↩", "location": "Tokyo" },
-  { "name": "Yasuda Kinen", "image": "images/races/Yasuda Kinen.png", "length": "1600", "surface": "Turf", "turn": "Left ↩", "location": "Tokyo" },
-  { "name": "Teio Sho", "image": "images/races/Teio Sho.png", "length": "2000", "surface": "Dirt", "turn": "Right ↪", "location": "Ooi" },
-  { "name": "Kikuka Sho", "image": "images/races/Kikuka Sho.png", "length": "3000", "surface": "Turf", "turn": "Right ↪", "location": "Kyoto" },
-  { "name": "Tokyo Daishoten", "image": "images/races/Tokyo Daishoten.png", "length": "2000", "surface": "Dirt", "turn": "Left ↩", "location": "Ooi" },
-  { "name": "February Stakes", "image": "images/races/February Stakes.png", "length": "1600", "surface": "Dirt", "turn": "Left ↩", "location": "Tokyo" },
-  { "name": "Japan Dirt Derby", "image": "images/races/Japan Dirt Derby.png", "length": "2000", "surface": "Dirt", "turn": "Right ↪", "location": "Ooi" },
-  { "name": "Sprinters Stakes", "image": "images/races/Sprinters Stakes.png", "length": "1200", "surface": "Turf", "turn": "Right ↪", "location": "Nakayama" },
-  { "name": "Shuka Sho", "image": "images/races/Shuka Sho.png", "length": "2000", "surface": "Turf", "turn": "Right ↪", "location": "Kyoto" }
+  {
+    "name": "Hopeful Stakes",
+    "image": "images/races/Hopeful Stakes.png",
+    "length": "2000",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Nakayama"
+  },
+  {
+    "name": "Oka Sho",
+    "image": "images/races/Oka_Sho.png",
+    "length": "1600",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Hanshin"
+  },
+  {
+    "name": "Satsuki Sho",
+    "image": "images/races/Satsuki Sho.png",
+    "length": "2000",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Nakayama"
+  },
+  {
+    "name": "NHK Mile Cup",
+    "image": "images/races/NHK Mile Cup.png",
+    "length": "1600",
+    "surface": "Turf",
+    "turn": "Left ↩",
+    "location": "Tokyo"
+  },
+  {
+    "name": "Japanese Oak",
+    "image": "images/races/Japanese Oak.png",
+    "length": "2400",
+    "surface": "Turf",
+    "turn": "Left ↩",
+    "location": "Tokyo"
+  },
+  {
+    "name": "Tokyo Yushun/Japanese Derby",
+    "image": "images/races/Japanese Derby.png",
+    "length": "2400",
+    "surface": "Turf",
+    "turn": "Left ↩",
+    "location": "Tokyo"
+  },
+  {
+    "name": "Tenno Sho (Autumn)",
+    "image": "images/races/Tenno Sho.png",
+    "length": "2000",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Tokyo"
+  },
+  {
+    "name": "Tenno Sho (Spring)",
+    "image": "images/races/Tenno Sho Spring.png",
+    "length": "3200",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Kyoto"
+  },
+  {
+    "name": "Arima Kinen",
+    "image": "images/races/arima_kinen.png",
+    "length": "2500",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Nakayama"
+  },
+  {
+    "name": "Champions Cup",
+    "image": "images/races/Champions Cup.png",
+    "length": "1800",
+    "surface": "Dirt",
+    "turn": "Left ↩",
+    "location": "Chukyo"
+  },
+  {
+    "name": "Japan Cup",
+    "image": "images/races/Japan Cup.png",
+    "length": "2400",
+    "surface": "Turf",
+    "turn": "Left ↩",
+    "location": "Tokyo"
+  },
+  {
+    "name": "Queen Elizabeth II Cup",
+    "image": "images/races/Queen Elizabeth II Cup.png",
+    "length": "2200",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Kyoto"
+  },
+  {
+    "name": "Mile Championship",
+    "image": "images/races/Mile Championship.png",
+    "length": "1600",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Kyoto"
+  },
+  {
+    "name": "Victoria Mile",
+    "image": "images/races/Victoria Mile.png",
+    "length": "1600",
+    "surface": "Turf",
+    "turn": "Left ↩",
+    "location": "Tokyo"
+  },
+  {
+    "name": "Yasuda Kinen",
+    "image": "images/races/Yasuda Kinen.png",
+    "length": "1600",
+    "surface": "Turf",
+    "turn": "Left ↩",
+    "location": "Tokyo"
+  },
+  {
+    "name": "Teio Sho",
+    "image": "images/races/Teio Sho.png",
+    "length": "2000",
+    "surface": "Dirt",
+    "turn": "Right ↪",
+    "location": "Ooi"
+  },
+  {
+    "name": "Kikuka Sho",
+    "image": "images/races/Kikuka Sho.png",
+    "length": "3000",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Kyoto"
+  },
+  {
+    "name": "Tokyo Daishoten",
+    "image": "images/races/Tokyo Daishoten.png",
+    "length": "2000",
+    "surface": "Dirt",
+    "turn": "Left ↩",
+    "location": "Ooi"
+  },
+  {
+    "name": "February Stakes",
+    "image": "images/races/February Stakes.png",
+    "length": "1600",
+    "surface": "Dirt",
+    "turn": "Left ↩",
+    "location": "Tokyo"
+  },
+  {
+    "name": "Japan Dirt Derby",
+    "image": "images/races/Japan Dirt Derby.png",
+    "length": "2000",
+    "surface": "Dirt",
+    "turn": "Right ↪",
+    "location": "Ooi"
+  },
+  {
+    "name": "Sprinters Stakes",
+    "image": "images/races/Sprinters Stakes.png",
+    "length": "1200",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Nakayama"
+  },
+  {
+    "name": "Shuka Sho",
+    "image": "images/races/Shuka Sho.png",
+    "length": "2000",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Kyoto"
+  },
+  {
+    "name": "JBC Sprint",
+    "image": "images/races/JBC Sprint.png",
+    "length": "1200",
+    "surface": "Dirt",
+    "turn": "Right ↪",
+    "location": "Ooi"
+  },
+  {
+    "name": "JBC Ladies' Classic",
+    "image": "images/races/JBC Ladies Classic.png",
+    "length": "1800",
+    "surface": "Dirt",
+    "turn": "Right ↪",
+    "location": "Ooi"
+  },
+  {
+    "name": "JBC Classic",
+    "image": "images/races/JBC Classic.png",
+    "length": "2000",
+    "surface": "Dirt",
+    "turn": "Right ↪",
+    "location": "Ooi"
+  }
 ]

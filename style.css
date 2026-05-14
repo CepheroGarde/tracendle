@@ -465,6 +465,45 @@ header button[aria-label="Open help"] {
     color: #374151;
     background-color: rgba(255, 255, 255, 0.85);
     box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+
+}
+
+header button[aria-label="Open changelog"],
+header button[aria-label="Toggle theme"],
+header button[aria-label="Open help"],
+header button[aria-label="Open statistics"] {   
+    border-color: #6b7280;
+    color: #374151;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+header button[aria-label="Open changelog"]:hover,
+header button[aria-label="Toggle theme"]:hover,
+header button[aria-label="Open help"]:hover,
+header button[aria-label="Open statistics"]:hover {   
+    background-color: #e5e7eb;
+    border-color: #4b5563;
+    color: #111827;
+}
+
+body.dark header button[aria-label="Open changelog"],
+body.dark header button[aria-label="Toggle theme"],
+body.dark header button[aria-label="Open help"],
+body.dark header button[aria-label="Open statistics"] {   
+    border-color: #4b5563;
+    color: #cbd5e1;
+    background-color: rgba(30, 41, 59, 0.85);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+body.dark header button[aria-label="Open changelog"]:hover,
+body.dark header button[aria-label="Toggle theme"]:hover,
+body.dark header button[aria-label="Open help"]:hover,
+body.dark header button[aria-label="Open statistics"]:hover {   
+    background-color: #334155;
+    border-color: #64748b;
+    color: #f1f5f9;
 }
 
 header button[aria-label="Open changelog"]:hover,
@@ -1369,6 +1408,134 @@ body.dark .picker-card.potential-match:active {
 
 body.dark .picker-card-name {
     color: #e2e8f0;
+}
+
+/* =============================================
+   STATISTICS MODAL
+   ============================================= */
+
+.stats-section {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 10px 12px 12px;
+}
+
+body.dark .stats-section {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.stats-section-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+body.dark .stats-section-title {
+    color: #94a3b8;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.stats-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1.5px solid #d1fae5;
+    border-radius: 10px;
+    padding: 8px 4px 6px;
+    text-align: center;
+}
+
+body.dark .stats-pill {
+    background: #0f172a;
+    border-color: #1e3a3a;
+}
+
+.stats-pill-blue {
+    border-color: #bfdbfe;
+}
+body.dark .stats-pill-blue {
+    border-color: #1e3a5f;
+}
+
+.stats-pill-red {
+    border-color: #fecaca;
+}
+body.dark .stats-pill-red {
+    border-color: #450a0a;
+}
+
+.stats-pill-dark {
+    border-color: #d1d5db;
+    background: #f9fafb;
+}
+body.dark .stats-pill-dark {
+    border-color: #374151;
+    background: #111827;
+}
+
+.stats-pill-value {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1e293b;
+    line-height: 1;
+    display: block;
+}
+
+body.dark .stats-pill-value {
+    color: #f1f5f9;
+}
+
+.stats-pill-label {
+    font-size: 8.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #94a3b8;
+    display: block;
+    margin-top: 3px;
+    line-height: 1.2;
+}
+
+body.dark #stats-modal > div {
+    background-color: #1e293b;
+    color: #e2e8f0;
+}
+
+body.dark #stats-modal .text-gray-800 {
+    color: #e2e8f0;
+}
+
+body.dark #stats-modal .border-t {
+    border-color: #334155;
+}
+
+body.dark #stats-modal .text-gray-400 {
+    color: #64748b;
+}
+
+body.dark #stats-modal .text-gray-300 {
+    color: #475569;
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .stats-pill-value {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 480px) {
