@@ -1,5 +1,9 @@
 Change Log
 
+## v1.2 DATE RACE
+* G1 Race Mode now shows a new "Schedule" column with the race's time of year (e.g. L. Dec)
+* Statistics: Removed the "Played" counter from all stat sections
+
 ## v1.1 NEW STATS
 
 * JBC Series finally added on G1 Races Category
