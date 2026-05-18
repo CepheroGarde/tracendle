@@ -249,11 +249,15 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
+  <script src="devtool.js"></script>
+
+    
 
 <div id="stats-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center hidden p-4">
   <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl overflow-hidden border-t-8 border-green-600 animate-fade-in max-h-[92vh] flex flex-col">
-    <div class="p-5 flex flex-col gap-0 overflow-y-auto flex-1">
-      <div class="flex items-center justify-between mb-4">
+    <div class="p-5 flex flex-col gap-4 overflow-y-auto">
+      
+      <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           <h2 class="text-xl font-black text-gray-800">Statistics</h2>
@@ -261,14 +265,14 @@
         <button onclick="closeStats()" class="text-gray-400 hover:text-black text-2xl leading-none">&times;</button>
       </div>
 
-      <div class="flex bg-gray-100 p-1 rounded-xl mb-4">
+      <div class="flex bg-gray-100 p-1 rounded-xl">
         <button id="stats-tab-uma" onclick="switchStatsTab('uma')" class="flex-1 py-1.5 rounded-lg font-bold text-sm transition-all bg-white shadow-sm text-green-700">Umamusume</button>
         <button id="stats-tab-course" onclick="switchStatsTab('course')" class="flex-1 py-1.5 rounded-lg font-bold text-sm transition-all text-gray-500 hover:text-gray-700">G1 Race</button>
       </div>
 
       <div id="stats-content" class="flex flex-col gap-3"></div>
 
-      <div class="mt-4 pt-4 border-t border-gray-100">
+      <div class="pt-4 border-t border-gray-100">
         <p class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-2 text-center">Danger Zone</p>
         <div class="flex gap-2">
           <button onclick="resetStatsTab()" id="reset-tab-btn"
@@ -282,6 +286,7 @@
         </div>
         <p class="text-[9px] text-gray-300 text-center mt-1">This cannot be undone.</p>
       </div>
+      
     </div>
   </div>
 </div>
@@ -302,6 +307,10 @@
                 
                 <ul class="list-disc list-inside text-sm space-y-2 ml-1">
                     <strong>Changelog: </strong>
+                    <br><strong>V1.2 (5/18/2026)</strong>
+                    <li><strong>Schedule Column:</strong> G1 Race Mode now shows a new "Schedule" column with the race's time of year (e.g. L. Dec)</li>
+                    <li><strong>Statistics:</strong> Removed the "Played" counter from all stat sections</li>
+                    <li><strong>Potential Matches:</strong> Dropdown suggestions now display a star (⭐) when a character matches FIVE or more of your confirmed aptitudes!</strong></li>
                     <br><strong>V1.1 (5/15/2026)</strong>
                     <li><strong>JBC Series</strong> finally added on G1 Races Category</li>
                     <li><strong>Statistics Page:</strong> Full stats window with per-mode streak tracking (Daily, Easy, Normal, Hard) for both Umamusume and G1 Race, plus the ability to reset your stats!</li>
