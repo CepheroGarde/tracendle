@@ -1,0 +1,17 @@
+name: Keep Supabase Database Awake
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every Tuesday and Friday (Twice a week)
+    - cron: '0 0 * * 2,5'
+  workflow_dispatch: # Allows you to also trigger this manually from GitHub if you want
+
+jobs:
+  ping_supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send API request to Supabase
+        run: |
+          curl -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/leaderboard?select=id&limit=1" \
+          -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
