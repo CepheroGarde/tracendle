@@ -1,4 +1,10 @@
 Change Log
+## v1.3 VOICEDLE
+* Voicedle Mode: New game type: guess the Umamusume from a 2-second voice line with progressive audio unlocks!
+* Global Trainer Leaderboard: Track top trainers worldwide with All Time, Weekly, and Monthly leaderboards.
+* Custom Wallpaper: Personalize your game with a custom background image for a more immersive experience.
+* Archive Play:  Replay previous rounds from the archive so you can revisit your favorite challenges.
+* Storage Transfer: Replace your current save with a save from another device.
 
 ## v1.2 DATE RACE
 * G1 Race Mode now shows a new "Schedule" column with the race's time of year (e.g. L. Dec)
