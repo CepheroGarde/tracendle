@@ -782,6 +782,21 @@
     "end": "G",
     "turf": "A",
     "dirt": "B"
+  },
+
+  {
+    "name": "Sakura Bakushin O",
+    "image": "images/uma/Sakura_Bakushin_O.webp",
+    "sprint": "A",
+    "mile": "B",
+    "med": "G",
+    "long": "G",
+    "front": "A",
+    "pace": "A",
+    "late": "F",
+    "end": "G",
+    "turf": "A",
+    "dirt": "G"
   }
   
 ]

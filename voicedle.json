@@ -1,0 +1,287 @@
+[
+  {
+    "name": "Special Week",
+    "image": "images/uma/Special_Week.webp",
+    "voice": "audio/voices/specialweek_voice.mp3"
+  },
+  {
+    "name": "Silence Suzuka",
+    "image": "images/uma/Silence_Suzuka.webp",
+    "voice": "audio/voices/silencesuzuka_voice.mp3"
+  },
+  {
+    "name": "Tokai Teio",
+    "image": "images/uma/Tokai_Teio.webp",
+    "voice": "audio/voices/tokaiteio_voice.mp3"
+  },
+  {
+    "name": "Maruzensky",
+    "image": "images/uma/Maruzensky.webp",
+    "voice": "audio/voices/maruzensky_voice.mp3"
+  },
+  {
+    "name": "Oguri Cap",
+    "image": "images/uma/Oguri_Cap.webp",
+    "voice": "audio/voices/oguricap_voice.mp3"
+  },
+  {
+    "name": "Gold Ship",
+    "image": "images/uma/Gold_Ship.webp",
+    "voice": "audio/voices/goldship_voice.mp3"
+  },
+  {
+    "name": "Vodka",
+    "image": "images/uma/Vodka.webp",
+    "voice": "audio/voices/vodka_voice.mp3"
+  },
+  {
+    "name": "Daiwa Scarlet",
+    "image": "images/uma/Daiwa_Scarlet.webp",
+    "voice": "audio/voices/daiwascarlet_voice.mp3"
+  },
+  {
+    "name": "Grass Wonder",
+    "image": "images/uma/Grass_Wonder.webp",
+    "voice": "audio/voices/grasswonder_voice.mp3"
+  },
+  {
+    "name": "Mejiro McQueen",
+    "image": "images/uma/Mejiro_Mcqueen.webp",
+    "voice": "audio/voices/mejiromcqueen_voice.mp3"
+  },
+  {
+    "name": "El Condor Pasa",
+    "image": "images/uma/El_Condor_Pasa.webp",
+    "voice": "audio/voices/elcondorpasa_voice.mp3"
+  },
+  {
+    "name": "Symboli Rudolf",
+    "image": "images/uma/Symboli_Rodulf.webp",
+    "voice": "audio/voices/symbolirudolf_voice.mp3"
+  },
+  {
+    "name": "Rice Shower",
+    "image": "images/uma/Rice_Shower.webp",
+    "voice": "audio/voices/riceshower_voice.mp3"
+  },
+  {
+    "name": "Haru Urara",
+    "image": "images/uma/Haru_Urara.webp",
+    "voice": "audio/voices/haruurara_voice.mp3"
+  },
+  {
+    "name": "Mihono Bourbon",
+    "image": "images/uma/Mihono_Bourbon.webp",
+    "voice": "audio/voices/mihonobourbon_voice.mp3"
+  },
+  {
+    "name": "Agnes Tachyon",
+    "image": "images/uma/Agnes_Tachyon.webp",
+    "voice": "audio/voices/agnestachyon_voice.mp3"
+  },
+  {
+    "name": "Smart Falcon",
+    "image": "images/uma/Smart_Falcon.webp",
+    "voice": "audio/voices/smartfalcon_voice.mp3"
+  },
+  {
+    "name": "Kitasan Black",
+    "image": "images/uma/Kitasan_Black.webp",
+    "voice": "audio/voices/kitasanblack_voice.mp3"
+  },
+  {
+    "name": "Satono Diamond",
+    "image": "images/uma/Satono_Diamond.webp",
+    "voice": "audio/voices/satonodiamond_voice.mp3"
+  },
+  {
+    "name": "Nice Nature",
+    "image": "images/uma/Nice_Nature.webp",
+    "voice": "audio/voices/nicenature_voice.mp3"
+  },
+  {
+    "name": "King Halo",
+    "image": "images/uma/King_Halo.webp",
+    "voice": "audio/voices/kinghalo_voice.mp3"
+  },
+  {
+    "name": "Matikanefukukitaru",
+    "image": "images/uma/Matikanefukukitaru.webp",
+    "voice": "audio/voices/matikanefukukitaru_voice.mp3"
+  },
+  {
+    "name": "Winning Ticket",
+    "image": "images/uma/Winning_Ticket.webp",
+    "voice": "audio/voices/winningticket_voice.mp3"
+  },
+  {
+    "name": "Mejiro Ryan",
+    "image": "images/uma/Mejiro_Bryan.webp",
+    "voice": "audio/voices/mejiroryan_voice.mp3"
+  },
+  {
+    "name": "Super Creek",
+    "image": "images/uma/Super_Creek.webp",
+    "voice": "audio/voices/supercreek_voice.mp3"
+  },
+  {
+    "name": "Mayano Top Gun",
+    "image": "images/uma/Mayano_Top_Gun.webp",
+    "voice": "audio/voices/mayanotopgun_voice.mp3"
+  },
+  {
+    "name": "Air Groove",
+    "image": "images/uma/Air_Groove.webp",
+    "voice": "audio/voices/airgroove_voice.mp3"
+  },
+  {
+    "name": "Matikanetannhouser",
+    "image": "images/uma/Matikanetanhauser.webp",
+    "voice": "audio/voices/matikanetannhauser_voice.mp3"
+  },
+  {
+    "name": "T.M. Opera O",
+    "image": "images/uma/TM_Opera_O.webp",
+    "voice": "audio/voices/tmoperao_voice.mp3"
+  },
+  {
+    "name": "Biwa Hayahide",
+    "image": "images/uma/Biwa_Hayahide.webp",
+    "voice": "audio/voices/biwahayahide_voice.mp3"
+  },
+  {
+    "name": "Curren Chan",
+    "image": "images/uma/Curren_Chan.webp",
+    "voice": "audio/voices/currenchan_voice.mp3"
+  },
+  {
+    "name": "Narita Taishin",
+    "image": "images/uma/Narita_Taishin.webp",
+    "voice": "audio/voices/naritataishin_voice.mp3"
+  },
+  {
+    "name": "Narita Brian",
+    "image": "images/uma/Narita Brian.webp",
+    "voice": "audio/voices/naritabrian_voice.mp3"
+  },
+  {
+    "name": "Seiun Sky",
+    "image": "images/uma/Seiun_Sky.webp",
+    "voice": "audio/voices/seiunsky_voice.mp3"
+  },
+  {
+    "name": "Hishi Amazon",
+    "image": "images/uma/Hishi_Amazon.webp",
+    "voice": "audio/voices/hishiamazon_voice.mp3"
+  },
+  {
+    "name": "Fuji Kiseki",
+    "image": "images/uma/Fuji_Kiseki.webp",
+    "voice": "audio/voices/fujikiseki_voice.mp3"
+  },
+  {
+    "name": "Gold City",
+    "image": "images/uma/Gold_City.webp",
+    "voice": "audio/voices/goldcity_voice.mp3"
+  },
+  {
+    "name": "Meisho Doto",
+    "image": "images/uma/Meisho_Doto.webp",
+    "voice": "audio/voices/meishodoto_voice.mp3"
+  },
+  {
+    "name": "Eishin Flash",
+    "image": "images/uma/Eishin_Flash.webp",
+    "voice": "audio/voices/eishinflash_voice.mp3"
+  },
+  {
+    "name": "Hishi Akebono",
+    "image": "images/uma/Hishi_Akibono.webp",
+    "voice": "audio/voices/hishiakebono_voice.mp3"
+  },
+  {
+    "name": "Agnes Digital",
+    "image": "images/uma/Agnes_Digital.webp",
+    "voice": "audio/voices/agnesdigital_voice.mp3"
+  },
+  {
+    "name": "Kawakami Princess",
+    "image": "images/uma/Kawakami_Princess.webp",
+    "voice": "audio/voices/kawakamiprincess_voice.mp3"
+  },
+  {
+    "name": "Manhattan Cafe",
+    "image": "images/uma/Manhattan_Cafe.webp",
+    "voice": "audio/voices/manhattancafe_voice.mp3"
+  },
+  {
+    "name": "Tosen Jordan",
+    "image": "images/uma/Toshen_Jordan.webp",
+    "voice": "audio/voices/tosenjordan_voice.mp3"
+  },
+  {
+    "name": "Mejiro Dober",
+    "image": "images/uma/Mejiro_Dober.webp",
+    "voice": "audio/voices/mejirodober_voice.mp3"
+  },
+  {
+    "name": "Fine Motion",
+    "image": "images/uma/Fine_Motion.webp",
+    "voice": "audio/voices/finemotion_voice.mp3"
+  },
+  {
+    "name": "Tamamo Cross",
+    "image": "images/uma/Tamamo_Cross.webp",
+    "voice": "audio/voices/tamamocross_voice.mp3"
+  },
+  {
+    "name": "Sakura Chiyono O",
+    "image": "images/uma/Sakura_Chinoyo_O.webp",
+    "voice": "audio/voices/sakurachiyonoo_voice.mp3"
+  },
+  {
+    "name": "Mejiro Ardan",
+    "image": "images/uma/Mejiro_Ardan.webp",
+    "voice": "audio/voices/mejiroardan_voice.mp3"
+  },
+  {
+    "name": "Admire Vega",
+    "image": "images/uma/Admire_Vega.webp",
+    "voice": "audio/voices/admirevega_voice.mp3"
+  },
+  {
+    "name": "Mejiro Bright",
+    "image": "images/uma/Mejiro_Bright.webp",
+    "voice": "audio/voices/mejirobright_voice.mp3"
+  },
+  {
+    "name": "Nishino Flower",
+    "image": "images/uma/Nishino_Flower.webp",
+    "voice": "audio/voices/nishinoflower_voice.mp3"
+  },
+  {
+    "name": "Yaeno Muteki",
+    "image": "images/uma/Yaeno_Muteki.webp",
+    "voice": "audio/voices/yaenomuteki_voice.mp3"
+  },
+  {
+    "name": "Ines Fujin",
+    "image": "images/uma/Ines_Fugin.webp",
+    "voice": "audio/voices/inesfujin_voice.mp3"
+  },
+  {
+    "name": "Mejiro Palmer",
+    "image": "images/uma/Mejiro_Palmer.webp",
+    "voice": "audio/voices/mejiropalmer_voice.mp3"
+  },
+  {
+    "name": "Taiki Shuttle",
+    "image": "images/uma/Taiki_Shuttle.webp",
+    "voice": "audio/voices/taikishuttle_voice.mp3"
+  },
+  {
+    "name": "Sakura Bakushin O",
+    "image": "images/uma/Sakura_Bakushin_O.webp",
+    "voice": "audio/voices/sakurabakushino_voice.mp3"
+  }
+]

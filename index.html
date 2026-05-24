@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TracenDle: Pretty Wordle</title>
     <link rel="icon" type="image/jpeg" href="images/small logo.png">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./output.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <meta name="title" content="TracenDle: Pretty Wordle">
     <meta name="description" content="Test your knowledge of Umamusume aptitudes and G1 Race courses in this daily puzzle game!">
@@ -18,6 +18,7 @@
     <meta property="twitter:description" content="Can you guess the Umamusume based on their aptitudes? Play TracenDle now!">
     <meta property="twitter:image" content="https://tracendle.pages.dev/images/umawordle logo.png">
     <meta name="theme-color" content="#15803d">
+    
     <script>
 
         (function(){
@@ -27,11 +28,20 @@
     </script>
 </head>
 <body class="min-h-screen flex flex-col items-center p-0">
+    <div id="intro-logo-overlay" class="intro-overlay" aria-hidden="true">
+      <div style="text-align:center">
+        <img id="intro-logo" src="images/umawordle logo.png" alt="TracenDle Intro Logo" class="intro-logo">
+        <div id="intro-credit" class="intro-credit" aria-hidden="true">
+          <div class="intro-credit-text">Made by <strong>Cephero Garde</strong></div>
+          <img src="images/pat.png" alt="Cephero Garde" class="intro-credit-img">
+        </div>
+      </div>
+    </div>
     <header class="w-full max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center py-4 mb-6 border-b-4 border-green-700 gap-4">
     <div class="flex items-center flex-shrink-0">
-        <img src="images/umawordle logo.png" 
+        <img id="header-logo" src="images/umawordle logo.png" 
              alt="TracenDle Logo" 
-             class="h-20 md:h-20 w-auto cursor-pointer object-contain" 
+             class="header-logo h-20 md:h-20 w-auto cursor-pointer object-contain" 
              onclick="showMenu()">
     </div>
 
@@ -43,45 +53,87 @@
             
         <div class="flex items-center gap-2">
             <div class="flex items-center gap-2">
-    <button onclick="openStats()" aria-label="Open statistics" class="w-9 h-9 rounded-full border-2 border-gray-400 text-gray-500 flex items-center justify-center hover:bg-gray-100 transition-colors">
+
+    <!-- Leaderboard -->
+    <button onclick="openLeaderboard()" aria-label="Open global leaderboard" class="w-9 h-9 rounded-full border-2 border-yellow-400 bg-yellow-400 text-white flex items-center justify-center hover:bg-yellow-500 hover:border-yellow-500 transition-colors shadow-sm" title="Global Leaderboard">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+    </button>
+
+    <!-- Stats -->
+    <button onclick="openStats()" aria-label="Open statistics" class="icon-btn w-9 h-9 rounded-full border-2 border-gray-400 text-gray-500 flex items-center justify-center hover:bg-gray-100 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
     </button>
-    <button onclick="openChangelog()" aria-label="Open changelog" class="w-9 h-9 rounded-full border-2 border-gray-400 text-gray-500 flex items-center justify-center hover:bg-gray-100 transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+
+    <!-- Wallpaper -->
+    <button onclick="openWallpaperPicker()" aria-label="Change wallpaper" class="icon-btn w-9 h-9 rounded-full border-2 border-gray-400 text-gray-500 flex items-center justify-center hover:bg-gray-100 transition-colors" title="Change Wallpaper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
     </button>
-            <button onclick="toggleTheme()" id="theme-toggle" aria-label="Toggle theme" class="theme-toggle w-9 h-9 rounded-full border-2 border-gray-400 text-gray-500 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon hidden"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+
+    <!-- Theme -->
+    <button onclick="toggleTheme()" id="theme-toggle" aria-label="Toggle theme" class="theme-toggle w-9 h-9 rounded-full border-2 border-gray-400 text-gray-500 flex items-center justify-center hover:bg-gray-100 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon hidden"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
+    <!--  Overflow menu (Changelog + Help) -->
+    <div class="relative" id="overflow-menu-wrap">
+        <button onclick="toggleOverflowMenu()" id="overflow-menu-btn" aria-label="More options" class="icon-btn w-9 h-9 rounded-full border-2 border-gray-400 text-gray-500 flex items-center justify-center hover:bg-gray-100 transition-colors" title="More">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+        </button>
+        <!-- Dropdown -->
+        <div id="overflow-menu-dropdown" class="overflow-dropdown hidden">
+            <button onclick="openChangelog(); closeOverflowMenu();" class="overflow-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+                <span>What's New</span>
             </button>
-            <button onclick="toggleHelp(true)" aria-label="Open help" class="w-9 h-9 rounded-full border-2 border-gray-400 text-gray-500 font-bold flex items-center justify-center hover:bg-gray-100 transition-colors">?</button>
-            
+            <button onclick="toggleHelp(true); closeOverflowMenu();" class="overflow-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                <span>How to Play</span>
+            </button>
+            <button onclick="openAbout();" class="overflow-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span>About</span>
+            </button>
+            <div style="height:1px;background:var(--border-color,#e2e8f0);margin:4px 8px;"></div>
+            <button onclick="openSaveTransferModal();" class="overflow-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Save Transfer</span>
+            </button>
         </div>
-        
     </div>
+
+            </div>
+        </div>
     
     
 </header>
 
     <div class="w-full max-w-6xl mx-auto px-4 flex flex-col items-center">
 
-    <div id="menu-screen" class="w-full max-w-md bg-white rounded-xl shadow-2xl p-8 flex flex-col gap-4">
+    <div id="menu-screen" class="w-full max-w-lg bg-white rounded-xl shadow-2xl p-8 flex flex-col gap-4">
         <div class="flex bg-gray-100 p-1 rounded-xl mb-2">
-            <button id="tab-uma" onclick="switchGameType('uma')" class="flex-1 py-2 rounded-lg font-bold transition-all bg-white shadow-sm text-green-700">Umamusume</button>
-            <button id="tab-course" onclick="switchGameType('course')" class="flex-1 py-2 rounded-lg font-bold transition-all text-gray-500 hover:text-gray-700">G1 Race</button>
+            <button id="tab-uma" onclick="switchGameType('uma')" class="flex-1 py-2 rounded-lg font-bold transition-all bg-white shadow-sm text-green-700 text-sm">Umamusume</button>
+            <button id="tab-course" onclick="switchGameType('course')" class="flex-1 py-2 rounded-lg font-bold transition-all text-gray-500 hover:text-gray-700 text-sm">G1 Race</button>
+            <button id="tab-voicedle" onclick="switchGameType('voicedle')" class="flex-1 py-2 rounded-lg font-bold transition-all text-gray-500 hover:text-gray-700 text-sm">Voicedle</button>
         </div>
         
         <div class="text-center mb-4">
             <p id="menu-description" class="text-gray-600">Guess the Umamusume based on their base Aptitudes!</p>
         </div>
-        
+        <div id="yesterday-info" class="text-center text-xs text-gray-500 bg-gray-50 py-1 rounded italic"></div>
         <div class="flex flex-col gap-3">
             <button id="daily-btn" onclick="startGame('daily')" class="btn-primary flex items-center justify-center gap-3 text-white font-bold py-4 rounded-lg shadow-lg text-xl">
-            <img src="images\silence suzuka chibi.png" class="h-20 w-20 object-contain" alt="">
-            Daily Wordle<img src="images\silence suzuka chibi flip.png" class="h-20 w-20 object-contain" alt="">
+              <img id="daily-chibi-left" src="images/chibi uma/Haru_Urara_Chibi.webp" class="h-20 w-20 object-contain" alt="">
+              <span class="font-black text-lg">Daily Wordle</span>
+                <img id="daily-chibi-right" src="images/chibi uma/Haru_Urara_Chibi.webp" class="h-20 w-20 object-contain" alt="">
             </button>
+
+        <div id="daily-solver-count" class="text-center text-xs font-bold text-green-700"></div>
+        
             
-        <div id="yesterday-info" class="text-center text-xs text-gray-500 bg-gray-50 py-1 rounded border border-gray-100 italic"></div>
-            <div id="server-time" class="text-[10px] font-mono text-gray-400 uppercase tracking-widest text-center mt-1">NEXT DAILY IN: 00:00:00</div>
+        <div id="server-time" class="text-[10px] font-mono text-gray-400 uppercase tracking-widest text-center mt-1">NEXT DAILY IN: 00:00:00</div>
+            
+            <button onclick="openArchiveMode()" class="btn-secondary text-white font-bold py-2 rounded-lg shadow-lg text-sm bg-indigo-600 hover:bg-indigo-700">Archive Mode</button>
 </div>
         <div class="flex flex-col gap-4 w-full max-w-md">
     <div id="ranked-profile-view" class="hidden bg-gradient-to-r from-purple-100 to-indigo-100 p-4 rounded-2xl border-2 border-purple-300 shadow-sm mb-2">
@@ -105,7 +157,7 @@
             Ranked Mode
         </button>
         <p class="hidden text-[9px] text-purple-500 font-medium italic text-center px-2">
-            ⚠️ This game mode is still developing and it might not be working correctly.
+             This game mode is still developing and it might not be working correctly.
         </p>
     </div>
 </div>
@@ -120,7 +172,7 @@
         <div id="daily-status" class="text-center text-sm font-medium mt-2"></div>
 
         <footer class="mt-6 pt-4 border-t border-gray-100 flex flex-col items-center gap-3 text-gray-400">
-            <div class="text-xs font-medium flex items-center gap-2">
+            <div id="made-by-footer" class="text-xs font-medium flex items-center gap-2">
                 <span>Made by</span>
                 <div class="flex items-center gap-1.5">
                     <img src="images\pat.png" alt="Pat" class="h-6 w-6">
@@ -155,12 +207,58 @@
                 ← Menu
             </button>
             
-            <div id="mode-indicator" class="flex-1 text-center font-black uppercase text-sm truncate" style="color:#dc2626;"></div>
+            <div id="mode-indicator" class="flex-1 text-center font-black uppercase text-sm truncate text-red-600 dark:text-red-400"></div>
             <div id="score-display" class="flex-shrink-0 font-bold text-green-800 text-sm text-right" style="min-width:80px;"></div>
         </div>
         
-        <div class="text-sm font-bold text-gray-500 mb-2">
-            Guesses Remaining: <span id="remaining-guesses"></span>
+        <div id="guess-dots-container" class="flex items-center gap-2 mb-2">
+            <span id="guesses-label" class="guess-dots-label">Guesses</span>
+            <div id="remaining-guesses" class="flex items-center gap-1.5"></div>
+        </div>
+
+        <div id="voicedle-panel" class="hidden voicedle-panel w-full max-w-md mb-4">
+            <div id="voicedle-player-card" class="voicedle-player-card">
+                <div class="voicedle-player-top">
+                    <span class="voicedle-player-badge">Voice Clip</span>
+                    <span id="voicedle-time-display" class="voicedle-time-display">0.0 / 0.5s</span>
+                </div>
+                <div class="voicedle-player-stage">
+                    <div id="voicedle-wave" class="voicedle-wave" aria-hidden="true"></div>
+                    <button type="button" id="voicedle-play-btn" onclick="playVoicedleClip()" class="voicedle-play-btn" aria-label="Play voice clip">
+                        <svg class="voicedle-play-icon voicedle-play-icon--play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                        <svg class="voicedle-play-icon voicedle-play-icon--pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/></svg>
+                    </button>
+                </div>
+                <div class="voicedle-timeline">
+                    <div class="voicedle-progress-wrap">
+                        <div id="voicedle-progress-unlock" class="voicedle-progress-unlock"></div>
+                        <div id="voicedle-progress-bar" class="voicedle-progress-bar"></div>
+                        <div class="voicedle-segment-markers" aria-hidden="true">
+                            <span class="voicedle-segment-mark" style="left: 25%"></span>
+                            <span class="voicedle-segment-mark" style="left: 50%"></span>
+                            <span class="voicedle-segment-mark" style="left: 75%"></span>
+                            <span class="voicedle-segment-mark" style="left: 87.5%"></span>
+                            <span class="voicedle-segment-mark" style="left: 100%"></span>
+                        </div>
+                    </div>
+                    <div class="voicedle-unlock-steps" id="voicedle-unlock-steps">
+                        <span class="voicedle-step" data-tier="0">0.5s</span>
+                        <span class="voicedle-step" data-tier="1">1.0s</span>
+                        <span class="voicedle-step" data-tier="2">1.5s</span>
+                        <span class="voicedle-step" data-tier="3">1.8s</span>
+                        <span class="voicedle-step" data-tier="4">2.0s</span>
+                    </div>
+                </div>
+                <div class="voicedle-volume-row">
+                    <label for="voicedle-volume" class="voicedle-volume-label" aria-hidden="true">
+                        <svg id="voicedle-volume-icon" class="voicedle-volume-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                    </label>
+                    <input type="range" id="voicedle-volume" class="voicedle-volume-slider" min="0" max="100" value="100" aria-label="Volume" aria-valuemin="0" aria-valuemax="100">
+                </div>
+                <p id="voicedle-unlock-hint" class="voicedle-unlock-hint">Tap play to hear the voice line</p>
+                <button type="button" id="voicedle-skip-btn" onclick="skipVoicedleGuess()" class="voicedle-skip-btn">Skip</button>
+            </div>
+            <div id="voicedle-guess-history" class="voicedle-guess-history"></div>
         </div>
         
         <div class="table-wrapper w-full">
@@ -173,7 +271,7 @@
         <div id="input-container" class="hidden w-full mt-3">
             <div class="picker-search-bar">
                 <input type="text" id="uma-input"
-                    class="w-full p-3 rounded-lg border-2 border-green-700"
+                    class="w-full p-3 rounded-lg border-2 border-green-700 bg-white text-slate-800"
                     placeholder="Search...">
             </div>
             <div id="picker-panel">
@@ -211,7 +309,7 @@
 
                 <div id="loss-streak-banner" class="hidden"></div>
 
-                <div class="flex justify-center mb-3">
+                <div id="share-card-wrap" class="flex justify-center mb-3">
                     <div id="share-card" class="bg-[#111827] p-3 rounded-xl shadow-2xl inline-block text-center border border-gray-800">
                         <h4 id="share-title-text" class="text-green-500 font-black text-[10px] tracking-[0.2em] mb-0.5">UMAWORDLE</h4>
                         <div id="share-info-text" class="text-[9px] text-gray-500 mb-2 uppercase font-bold tracking-widest"></div>
@@ -229,13 +327,30 @@
                             <h3 id="target-name" class="text-lg font-black text-green-700 leading-tight"></h3>
                         </div>
                     </div>
-                    <div id="target-stats-grid">
+                    <div id="target-stats-grid"></div>
+                    <div id="voicedle-result-panel" class="voicedle-result-panel hidden">
+                        <button type="button" id="voicedle-result-play-btn" class="voicedle-result-play-btn" aria-label="Play answer voice line">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                            <span>Play answer voice line</span>
+                        </button>
+                        <div class="voicedle-result-section">
+                            <span class="voicedle-result-label">Clip unlocks</span>
+                            <div id="voicedle-result-steps" class="voicedle-result-steps"></div>
+                        </div>
+                        <div class="voicedle-result-section">
+                            <span class="voicedle-result-label">Your guesses</span>
+                            <div id="voicedle-result-guesses" class="voicedle-result-guesses"></div>
+                        </div>
+                        <p id="voicedle-result-summary" class="voicedle-result-summary"></p>
                     </div>
                 </div>
                 
                 <div class="flex gap-2 items-center">
                     <button id="modal-action-btn" onclick="closeModal()" class="flex-1 btn-primary text-white font-bold py-3 rounded-xl shadow-lg transition-all active:scale-95">
                         Continue
+                    </button>
+                    <button onclick="copyShareResults()" class="w-10 h-10 bg-gray-700 text-white rounded-xl hover:bg-gray-800 transition-all active:scale-95 flex items-center justify-center" aria-label="Copy to clipboard" title="Copy to Clipboard">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
                     </button>
                     <button onclick="shareToTwitter()" class="w-10 h-10 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition-all active:scale-95 flex items-center justify-center" aria-label="Share on X">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -247,11 +362,192 @@
             </div>
         </div>
     </div>
+<!-- Archive Mode Modal -->
+<div id="archive-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[200] flex items-center justify-center p-4 hidden">
+  <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl overflow-hidden border-t-8 border-indigo-500 animate-fade-in">
+    <div class="p-5 flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">📅</span>
+          <h2 class="text-lg font-black">Archive Mode</h2>
+        </div>
+        <button onclick="closeArchiveMode()" class="text-gray-400 hover:text-black text-2xl leading-none font-bold">&times;</button>
+      </div>
+
+      <p class="text-sm text-gray-600">Select a past date (up to 2 days ago) to play that day's daily challenge. <strong>Archive games don't affect your official stats.</strong></p>
+
+      <div>
+        <label class="text-xs font-bold text-gray-600 uppercase tracking-widest block mb-2">Select Date</label>
+        <div class="flex gap-2">
+          <input id="archive-date-input" type="date" class="flex-1 px-3 py-2 rounded-lg border-2 border-gray-300 focus:border-indigo-500 outline-none text-sm" />
+          <button onclick="validateAndStartArchive()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-colors">Play</button>
+        </div>
+      </div>
+
+      <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-3 text-xs text-indigo-700">
+        <p><strong>How it works:</strong></p>
+        <ul class="list-disc list-inside mt-2 space-y-1">
+          <li>Play any past puzzle (not Today or Yesterday)</li>
+          <li>Results are marked as "archive"</li>
+          <li>No impact on your streaks or official stats</li>
+        </ul>
+      </div>
+
+      <div class="flex gap-2">
+        <button onclick="closeArchiveMode()" class="flex-1 px-4 py-2 border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50 transition-colors">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wallpaper Picker Modal -->
+<div id="wallpaper-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[200] flex items-center justify-center p-4 hidden">
+  <div id="wallpaper-modal-inner" class="wallpaper-modal-card rounded-2xl max-w-sm w-full shadow-2xl overflow-hidden border-t-8 border-green-500 animate-fade-in max-h-[90vh] overflow-y-auto">
+    <div class="p-5 flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <h2 class="wallpaper-modal-title text-lg font-black">Wallpaper</h2>
+        </div>
+        <button onclick="closeWallpaperPicker()" class="wallpaper-modal-close text-2xl leading-none font-bold">&times;</button>
+      </div>
+
+      <!-- Preset grid -->
+      <div>
+        <p class="wallpaper-section-label text-xs font-bold uppercase tracking-widest mb-2">Presets</p>
+        <div id="wallpaper-preset-grid" class="grid grid-cols-3 gap-2">
+          <!-- filled by JS -->
+        </div>
+      </div>
+
+      <!-- Upload from device -->
+      <div>
+        <p class="wallpaper-section-label text-xs font-bold uppercase tracking-widest mb-1">Upload from Device</p>
+        <label id="wallpaper-upload-label" class="wallpaper-upload-zone flex flex-col items-center justify-center gap-1 w-full py-4 rounded-xl border-2 border-dashed cursor-pointer transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span class="text-xs font-bold">Click to upload an image</span>
+          <span class="wallpaper-upload-hint text-[10px]">JPG, PNG, GIF, WebP</span>
+          <input id="wallpaper-file-input" type="file" accept="image/*" class="hidden" onchange="handleWallpaperUpload(event)" />
+        </label>
+      </div>
+
+      <!-- Custom URL -->
+      <div>
+        <p class="wallpaper-section-label text-xs font-bold uppercase tracking-widest mb-1">Custom Image URL</p>
+        <div class="flex gap-2">
+          <input id="wallpaper-url-input" type="text" placeholder="https://..." maxlength="500"
+            class="wallpaper-url-field flex-1 px-3 py-2 rounded-xl border-2 focus:border-green-500 outline-none text-sm transition-colors" />
+          <button onclick="applyCustomWallpaperUrl()" class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-bold rounded-xl transition-colors">Apply</button>
+        </div>
+      </div>
+
+      <!-- Remove wallpaper -->
+      <button onclick="removeWallpaper()" class="wallpaper-remove-btn w-full py-2 border-2 font-bold rounded-xl text-sm transition-colors">
+        🚫 Remove Wallpaper (use default)
+      </button>
+    </div>
+  </div>
+</div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/voicedle.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/leaderboard.js"></script>
+    <script src="js/main.js"></script>
   <script src="devtool.js"></script>
 
     
+
+<div id="username-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] flex items-center justify-center p-4 hidden">
+  <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl overflow-hidden border-t-8 border-green-500 animate-fade-in">
+    <div class="p-6 flex flex-col gap-4">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl">🏆</span>
+        <div>
+          <h2 id="username-modal-title" class="text-xl font-black text-gray-800">Welcome, Trainer!</h2>
+          <p class="text-xs text-gray-500">Choose your leaderboard display name</p>
+        </div>
+      </div>
+
+      <div class="bg-green-50 rounded-xl p-3 border border-green-100 text-xs text-green-700">
+        Your username will appear on the <strong>Global Leaderboard</strong>. You can change it anytime from the leaderboard screen.
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="text-xs font-bold text-gray-600 uppercase tracking-widest">Username</label>
+        <input id="username-input" type="text" maxlength="15" placeholder="Enter username (max 15 chars)"
+          class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-green-500 outline-none text-sm font-medium transition-colors" />
+        <p id="username-error" class="text-xs text-red-500 hidden">Please enter a valid username.</p>
+      </div>
+
+      <button onclick="saveUsername()" class="w-full bg-green-600 hover:bg-green-700 active:scale-95 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-green-100">
+        Let's Play! 🎮
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="leaderboard-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center hidden p-4">
+  <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl overflow-hidden border-t-8 border-yellow-400 animate-fade-in max-h-[92vh] flex flex-col">
+    <div class="p-5 flex flex-col gap-4 overflow-y-auto flex-1 min-h-0">
+
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          <h2 class="text-xl font-black text-gray-800">Global Trainer Leaderboard</h2>
+        </div>
+        <button onclick="closeLeaderboard()" class="text-gray-400 hover:text-black text-2xl leading-none">&times;</button>
+      </div>
+        <h3 class="text-base font-black text-center mb-3">All Time Highest Streak</h3>
+      <div class="flex items-center justify-between bg-yellow-50 border border-yellow-200 rounded-xl px-3 py-2">
+        <div class="flex items-center gap-2">
+          <span class="text-base">👤</span>
+          <div>
+            <p class="text-[10px] text-yellow-700 font-bold uppercase tracking-widest">Your Username</p>
+            <p id="lb-current-username" class="text-sm font-black text-gray-800">—</p>
+          </div>
+        </div>
+        
+        <button onclick="openChangeUsername()" class="text-xs font-bold text-yellow-700 bg-yellow-100 hover:bg-yellow-200 px-3 py-1.5 rounded-lg transition-colors border border-yellow-300">
+          ✏️ Change
+        </button>
+      </div>
+
+      <div class="flex bg-gray-100 p-1 rounded-xl">
+        <button id="lb-tab-uma" onclick="switchLeaderboardTab('uma')" class="flex-1 py-1.5 rounded-lg font-bold text-sm transition-all bg-white shadow-sm text-green-700">Umamusume</button>
+        <button id="lb-tab-course" onclick="switchLeaderboardTab('course')" class="flex-1 py-1.5 rounded-lg font-bold text-sm transition-all text-gray-500 hover:text-gray-700">G1 Race</button>
+        <button id="lb-tab-voicedle" onclick="switchLeaderboardTab('voicedle')" class="flex-1 py-1.5 rounded-lg font-bold text-sm transition-all text-gray-500 hover:text-gray-700">Voicedle</button>
+      </div>
+
+   
+        
+      <div>
+        <p id="leaderboard-reset-timer" class="text-[10px] text-center text-gray-500 mb-3">Reset timer will appear here.</p>
+
+        <div class="flex bg-gray-100 rounded-xl p-1 mb-3 text-xs font-bold">
+          <button id="lbl-window-weekly" onclick="changeLbTime('weekly')" class="flex-1 py-2 rounded-lg bg-white shadow-sm transition-all text-gray-800">Weekly</button>
+          <button id="lbl-window-monthly" onclick="changeLbTime('monthly')" class="flex-1 py-2 rounded-lg text-gray-500 transition-all">Monthly</button>
+          <button id="lbl-window-alltime" onclick="changeLbTime('alltime')" class="flex-1 py-2 rounded-lg text-gray-500 transition-all">All Time</button>
+        </div>
+
+        <div class="flex bg-gray-100 p-1 rounded-xl mb-3 text-xs font-bold">
+          <button id="lbl-cat-normal" onclick="changeLbCategory('normal')" class="flex-1 py-2 rounded-lg bg-white shadow-sm transition-all text-gray-800">Normal</button>
+          <button id="lbl-cat-hard" onclick="changeLbCategory('hard')" class="flex-1 py-2 rounded-lg text-gray-500 transition-all">Hard</button>
+        </div>
+
+        <div id="leaderboard-entries" class="space-y-2 max-h-96 overflow-y-auto pr-1"></div>
+      </div>
+
+    </div>
+    <div class="px-5 pb-4 flex flex-col gap-2 border-t border-gray-100 dark:border-gray-700 pt-3">
+      <div id="leaderboard-my-score" class="space-y-1"></div>
+      <p class="text-[9px] text-gray-300 text-center">Scores sync automatically when you play. Top 100 shown.</p>
+    </div>
+  </div>
+</div>
 
 <div id="stats-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center hidden p-4">
   <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl overflow-hidden border-t-8 border-green-600 animate-fade-in max-h-[92vh] flex flex-col">
@@ -268,6 +564,7 @@
       <div class="flex bg-gray-100 p-1 rounded-xl">
         <button id="stats-tab-uma" onclick="switchStatsTab('uma')" class="flex-1 py-1.5 rounded-lg font-bold text-sm transition-all bg-white shadow-sm text-green-700">Umamusume</button>
         <button id="stats-tab-course" onclick="switchStatsTab('course')" class="flex-1 py-1.5 rounded-lg font-bold text-sm transition-all text-gray-500 hover:text-gray-700">G1 Race</button>
+        <button id="stats-tab-voicedle" onclick="switchStatsTab('voicedle')" class="flex-1 py-1.5 rounded-lg font-bold text-sm transition-all text-gray-500 hover:text-gray-700">Voicedle</button>
       </div>
 
       <div id="stats-content" class="flex flex-col gap-3"></div>
@@ -292,11 +589,14 @@
 </div>
 
 <div id="changelog-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center hidden p-4">
-    <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl overflow-hidden border-t-8 border-green-600 animate-in fade-in zoom-in duration-300">
-        <div class="p-6">
-            <div class="flex items-center gap-3 mb-4">
-                <span class="text-2xl">✨</span>
-                <h2 class="text-2xl font-bold text-gray-800">Welcome Trainer!</h2>
+    <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl overflow-hidden border-t-8 border-green-600 animate-in fade-in zoom-in duration-300 flex flex-col max-h-[92vh]">
+        <div class="p-6 flex flex-col overflow-y-auto flex-1 min-h-0">
+            <div class="flex items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">✨</span>
+                    <h2 class="text-2xl font-bold text-gray-800">Welcome Trainer!</h2>
+                </div>
+                <button onclick="closeChangelog()" class="text-gray-400 hover:text-black text-2xl leading-none">&times;</button>
             </div>
             
             <div class="space-y-4 text-gray-600">
@@ -308,6 +608,12 @@
                 <ul class="list-disc list-inside text-sm space-y-2 ml-1">
                     <strong>Changelog: </strong>
 
+                    <br><strong>V1.3 (5/25/2026)</strong>
+                    <li><strong>Voicedle Mode:</strong> New game type: guess the Umamusume from a 2-second voice line with progressive audio unlocks!</li>
+                    <li><strong>Global Trainer Leaderboard:</strong> Track top trainers worldwide with All Time, Weekly, and Monthly leaderboards.</li>
+                    <li><strong>Custom Wallpaper:</strong> Personalize your game with a custom background image for a more immersive experience.</li>
+                    <li><strong>Archive Play:</strong> Replay previous rounds from the archive so you can revisit your favorite challenges.</li>
+                    <li><strong>Storage Transfer:</strong> Replace your current save with a save from another device.</li>
                     <br><strong>V1.2 (5/18/2026)</strong>
                     <li><strong>Schedule Column:</strong> G1 Race Mode now shows a new "Schedule" column with the race's time of year (e.g. L. Dec)</li>
                     <li><strong>Statistics:</strong> Removed the "Played" counter from all stat sections</li>
@@ -319,14 +625,19 @@
                 </ul>
                 
             </div>
+        </div>
 
+        <div class="px-6 pb-4 border-t border-gray-100 pt-3">
             <button onclick="closeChangelog()" 
-                class="w-full mt-6 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition-all active:scale-95 shadow-lg shadow-green-200">
+                class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition-all active:scale-95 shadow-lg shadow-green-200">
                 Let's Play!
             </button>
         </div>
     </div>
 </div>
+
+<!-- Peeking character -->
+<img id="peeking-character" src="images/chibi uma/Haru_Urara_Chibi.webp" alt="Peeking Uma chibi" class="peeking-character-img">
 
 </body>
 </html>
