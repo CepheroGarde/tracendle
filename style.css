@@ -2542,13 +2542,14 @@ body:not(.dark) .voicedle-segment-mark {
 }
 
 .voicedle-unlock-steps {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.35rem;
+    position: relative;
+    height: 1.6rem;
 }
 
 .voicedle-step {
-    flex: 1;
+    position: absolute;
+    width: 15%;
+    transform: translateX(-50%);
     text-align: center;
     font-size: 0.65rem;
     font-weight: 800;
@@ -2559,6 +2560,12 @@ body:not(.dark) .voicedle-segment-mark {
     border: 1px solid transparent;
     transition: color 0.2s, background 0.2s, border-color 0.2s;
 }
+
+.voicedle-step[data-tier="0"] { left: 20%; }
+.voicedle-step[data-tier="1"] { left: 40%; }
+.voicedle-step[data-tier="2"] { left: 60%; }
+.voicedle-step[data-tier="3"] { left: 80%; }
+.voicedle-step[data-tier="4"] { left: 100%; transform: translateX(-100%); }
 
 body:not(.dark) .voicedle-step {
     color: #9ca3af;
