@@ -223,5 +223,32 @@
     "turn": "Right ↪",
     "location": "Ooi",
     "schedule": "E. Nov"
+  },
+  {
+    "name": "Asahi Hai Futurity Stakes",
+    "image": "images/races/Asuhi Hai Futurity Stakes.png",
+    "length": "1600",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Hanshin",
+    "schedule": "E. Dec"
+  },
+  {
+    "name": "Hanshin Juvenile Fillies",
+    "image": "images/races/Hanshin Juvenile Fillies.png",
+    "length": "1600",
+    "surface": "Turf",
+    "turn": "Right ↪",
+    "location": "Hanshin",
+    "schedule": "L. Dec"
+  },
+  {
+    "name": "Takamatsunomiya Kinen",
+    "image": "images/races/Trakamatsunomiya Kinen.png",
+    "length": "1200",
+    "surface": "Turf",
+    "turn": "Left ↩",
+    "location": "Chukyo",
+    "schedule": "L. Mar"
   }
 ]
