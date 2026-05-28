@@ -346,6 +346,35 @@ header button[aria-label]:hover,
     transition: background-color 0s; 
 }
 
+.guess-arrow {
+    display: inline-block;
+    min-width: 0.9em;
+    margin-left: 0.1em;
+    white-space: nowrap;
+    font-weight: 700;
+    line-height: 1;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+/* Ensure wordle cells never clip their rank + arrow on any screen */
+.wordle-cell {
+    white-space: nowrap;
+    overflow: visible;
+}
+
+@media (max-width: 900px) {
+    .wordle-cell {
+        padding: 0.4rem 0.3rem !important;
+        font-size: clamp(9px, 2.2vw, 13px);
+        min-width: 0;
+    }
+    .guess-arrow {
+        font-size: 0.85em;
+        margin-left: 0.05em;
+    }
+}
+
 .wordle-flip {
     animation: wordle-flip 0.5s ease-in-out both;
     transform-style: preserve-3d;
@@ -789,7 +818,7 @@ body.dark header {
 
     #guess-grid th,
     #guess-grid td {
-        padding: 0.65rem;
+        padding: 0.5rem 0.4rem;
     }
 
     #guess-grid {
@@ -1409,6 +1438,11 @@ body.dark #game-toolbar {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    #guesses td.wordle-cell {
+        overflow: visible;
+        text-overflow: clip;
     }
 
     #guesses img,
@@ -3331,6 +3365,9 @@ body.dark .about-muted {
     transition: border-color .15s, background .15s;
     margin-bottom: 8px;
 }
+.about-source-link > div {
+    min-width: 0;
+}
 body.dark .about-source-link {
     background: #0f172a;
     border-color: #334155;
@@ -3349,6 +3386,9 @@ body.dark .about-source-link:hover {
     color: #16a34a;
     font-size: 15px;
     font-weight: 700;
+    flex-shrink: 0;
+    min-width: 1.2em;
+    text-align: right;
 }
 body.dark .about-link-arrow {
     color: #4ade80;
