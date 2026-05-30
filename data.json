@@ -797,6 +797,21 @@
     "end": "G",
     "turf": "A",
     "dirt": "G"
+  },
+  {
+    "name": "Inari One",
+    "image": "images/uma/Inari_One.webp",
+    "sprint": "F",
+    "mile": "B",
+    "med": "A",
+    "long": "A",
+    "front": "G",
+    "pace": "B",
+    "late": "B",
+    "end": "A",
+    "turf": "A",
+    "dirt": "A"
   }
+  
   
 ]

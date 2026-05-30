@@ -283,5 +283,10 @@
     "name": "Sakura Bakushin O",
     "image": "images/uma/Sakura_Bakushin_O.webp",
     "voice": "audio/voices/sakurabakushino_voice.mp3"
+  },
+  {
+    "name": "Inari One",
+    "image": "images/uma/Inari_One.webp",
+    "voice": "audio/voices/inarione_voice.mp3"
   }
 ]
