@@ -1558,7 +1558,7 @@ body.dark #picker-panel {
     border-radius: 10px;
     padding: 6px 4px 5px;
     border: 2px solid transparent;
-    background: #f1f5f9;
+    background: transparent;
     transition: background 0.12s, border-color 0.12s, transform 0.1s;
     text-align: center;
     position: relative;
@@ -1586,11 +1586,11 @@ body.dark #picker-panel {
 }
 
 .picker-card-img {
-    width: 58px;
-    height: 58px;
-    object-fit: cover;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
     border-radius: 8px;
-    background: #e2e8f0;
+    background: transparen;
     margin-bottom: 4px;
     display: block;
     pointer-events: none;
@@ -1779,8 +1779,8 @@ body.dark #stats-modal .text-gray-300 {
         gap: 5px;
     }
     .picker-card-img {
-        width: 48px;
-        height: 48px;
+        width: 60px;
+        height: 60px;
     }
 }
 
