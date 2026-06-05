@@ -288,5 +288,10 @@
     "name": "Inari One",
     "image": "images/uma/Inari_One.webp",
     "voice": "audio/voices/inarione_voice.mp3"
+  },
+  {
+    "name": "Sweep Tosho",
+    "image": "images/uma/Sweep_Tosho.webp",
+    "voice": "audio/voices/sweeptosho_voice.mp3"
   }
 ]

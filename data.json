@@ -811,6 +811,21 @@
     "end": "A",
     "turf": "A",
     "dirt": "A"
+  },
+
+{
+    "name": "Sweep Tosho",
+    "image": "images/uma/Sweep_Tosho.webp",
+    "sprint": "E",
+    "mile": "A",
+    "med": "A",
+    "long": "D",
+    "front": "G",
+    "pace": "G",
+    "late": "A",
+    "end": "A",
+    "turf": "A",
+    "dirt": "G"
   }
   
   
