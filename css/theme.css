@@ -1,0 +1,407 @@
+/* ============================================================
+   theme.css — Light-mode defaults, dark-mode overrides, and
+               pre-dark-flash prevention (html.dark-pre)
+   ============================================================ */
+
+/* --------------- Pre-dark flash guard --------------- */
+html.dark-pre body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+html.dark-pre #menu-screen {
+    background-color: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    color: #e2e8f0;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+}
+
+/* --------------- Dark mode: body --------------- */
+body.dark { background-image: none; background-color: #0f172a; }
+
+/* --------------- Dark mode: utility overrides --------------- */
+body.dark .username-suffix  { color: #9ca3af; }
+body.dark .also-try-divider { color: #475569; }
+body.dark .also-try-label   { color: #64748b; }
+
+body.dark .also-try-pill-pink   { color: #86efac; border-color: #1f4a2e; background: #1a2e22; }
+body.dark .also-try-pill-pink:hover { background: #1f3a29; }
+body.dark .also-try-pill-gray   { color: #fca5a5; border-color: #4a1f1f; background: #2e1a1a; }
+body.dark .also-try-pill-gray:hover { background: #3a1f1f; }
+body.dark .also-try-pill-purple { color: #93c5fd; border-color: #1e2f4a; background: #1a222e; }
+body.dark .also-try-pill-purple:hover { background: #1f2a3a; }
+
+/* --------------- Dark mode: Tailwind colour overrides --------------- */
+body.dark .text-gray-600   { color: #94a3b8; }
+body.dark .text-gray-500   { color: #64748b; }
+body.dark .text-gray-400   { color: #9ca3af; }
+body.dark .text-gray-700   { color: #d1d5db; }
+body.dark .text-gray-800   { color: #e5e7eb; }
+body.dark .text-slate-500  { color: #64748b; }
+body.dark .text-slate-800  { color: #e2e8f0; }
+body.dark .text-green-800  { color: #10b981; }
+body.dark .text-blue-600   { color: #3b82f6; }
+body.dark .text-blue-800   { color: #93c5fd; }
+body.dark .text-purple-600 { color: #8b5cf6; }
+body.dark .border-green-700 { border-color: #047857; }
+body.dark .border-t         { border-color: #334155; }
+body.dark .bg-white         { background-color: #1e293b; }
+body.dark .bg-blue-50       { background-color: #1e3a8a; }
+body.dark .border-blue-100  { border-color: #3b82f6; }
+
+body.dark h1              { color: #10b981; }
+body.dark h1 .text-red-600 { color: #ef4444; }
+
+/* --------------- Dark mode: modals (generic) --------------- */
+body.dark .help-modal > div,
+body.dark .result-modal > div > div {
+    background-color: #1e293b;
+    color: #e2e8f0;
+}
+
+body.dark .help-modal,
+body.dark .result-modal {
+    background-color: rgba(15, 23, 42, 0.9);
+}
+
+body.dark #result-modal > div {
+    background-color: #1e293b;
+}
+
+/* Light-mode: modal inner panels */
+body:not(.dark) .help-modal > div,
+body:not(.dark) .result-modal > div > div,
+body:not(.dark) #archive-modal > div,
+body:not(.dark) #wallpaper-modal-inner,
+body:not(.dark) #username-modal > div,
+body:not(.dark) #leaderboard-modal > div,
+body:not(.dark) #stats-modal > div,
+body:not(.dark) #changelog-modal > div {
+    background-color: rgba(255, 255, 255, 0.96);
+    color: #111827;
+    border-color: rgba(148, 163, 184, 0.3);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+
+/* Light-mode: modal backdrops */
+body:not(.dark) #help-modal,
+body:not(.dark) #result-modal,
+body:not(.dark) #archive-modal,
+body:not(.dark) #wallpaper-modal,
+body:not(.dark) #username-modal,
+body:not(.dark) #leaderboard-modal,
+body:not(.dark) #stats-modal,
+body:not(.dark) #changelog-modal {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+/* --------------- Dark mode: input --------------- */
+#uma-input                   { background-color: #ffffff; color: #1e293b; }
+#uma-input::placeholder      { color: #9ca3af; }
+#uma-input:focus             { background-color: #ffffff; border-color: #15803d; outline: none; box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15); }
+
+body.dark #uma-input             { background-color: #1e293b; border-color: #10b981; color: #e2e8f0; }
+body.dark #uma-input::placeholder { color: #64748b; }
+body.dark #uma-input:focus       { background-color: #1e293b; border-color: #34d399; box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2); }
+
+body.dark input:-webkit-autofill,
+body.dark input:-webkit-autofill:hover,
+body.dark input:-webkit-autofill:focus,
+body.dark input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px #1e293b inset !important;
+    -webkit-text-fill-color: #e2e8f0 !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* --------------- Dark mode: autocomplete --------------- */
+body.dark #autocomplete-list {
+    background-color: #1e293b;
+    border-color: #374151;
+    border-top: none;
+}
+
+body.dark #autocomplete-list div {
+    color: #e2e8f0;
+    background-color: transparent;
+    border-color: #334155;
+}
+
+body.dark #autocomplete-list div:hover {
+    background-color: #334155;
+}
+
+body.dark #autocomplete-list .match-badge {
+    background: #164e63;
+    color: #bae6fd;
+    border-color: transparent;
+}
+
+/* --------------- Dark mode: guesses counter --------------- */
+body.dark #remaining-guesses { color: #ef4444; }
+
+#guesses-label,
+.guess-dots-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+body:not(.dark) #guesses-label { color: #4b5563; }
+body.dark       #guesses-label { color: #9ca3af; }
+
+#guesses-remaining-label       { color: #374151; }
+body.dark #guesses-remaining-label { color: #cbd5e1; }
+
+/* --------------- Dark mode: game UI --------------- */
+body.dark #game-screen button { color: #10b981; }
+body.dark #mode-indicator     { color: #ef4444; }
+body.dark #score-display      { color: #10b981; }
+
+body:not(.dark) #mode-indicator { color: #dc2626; }
+body:not(.dark) #score-display  { color: #15803d; }
+
+/* --------------- Dark mode: result card --------------- */
+body.dark .result-uma-card { background-color: #334155; border-color: #475569; }
+body.dark .share-card      { background-color: #0f172a; border-color: #334155; }
+
+body.dark #result-target-card                     { background-color: #0f172a; border-color: #334155; }
+body.dark #result-target-card #target-name,
+body.dark #result-target-card .text-green-700     { color: #34d399; }
+body.dark #result-target-card .text-slate-400,
+body.dark #result-target-card #target-label       { color: #94a3b8; }
+body.dark #result-target-card .stat-tag-label     { color: #94a3b8; }
+body.dark #result-target-card .stat-tag-value     { color: #e2e8f0; }
+body.dark #result-target-card .stat-tag           { background: #1e293b; border-color: #475569; }
+body.dark #result-target-card .correct,
+body.dark #result-target-card .attr-box           { color: #ffffff; }
+body.dark #result-target-card .bg-white           { background-color: #1e293b !important; border-color: #475569 !important; }
+body.dark #result-target-card .font-black         { color: #f1f5f9 !important; }
+body.dark #result-target-card .text-slate-400     { color: #94a3b8 !important; }
+
+body.dark #result-target-card h4[class*="text-green-600"]  { color: #34d399 !important; }
+body.dark #result-target-card h4[class*="text-blue-600"]   { color: #60a5fa !important; }
+body.dark #result-target-card h4[class*="text-purple-600"] { color: #a78bfa !important; }
+body.dark #result-target-card h4[class*="text-orange-600"] { color: #fb923c !important; }
+body.dark #result-target-card h4[class*="text-red-600"]    { color: #f87171 !important; }
+
+body.dark #result-title { color: #e2e8f0; }
+body.dark #result-msg   { color: #94a3b8; }
+
+/* --------------- Dark mode: stats summary --------------- */
+#stats-summary                  { background-color: #f8fafc; color: #475569; }
+body.dark #stats-summary        { background-color: rgba(51, 65, 85, 0.70) !important; }
+body:not(.dark) #stats-summary  { background: rgba(255, 255, 255, 0.70); border-color: rgba(255,255,255,0.5); }
+
+/* --------------- Dark mode: stat pills --------------- */
+body.dark .stat-tag { background: #1e293b; border-color: #334155; }
+
+/* --------------- Dark mode: share-emoji --------------- */
+.share-emoji-block {
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Courier New", monospace;
+    line-height: 1.1;
+    letter-spacing: 4px;
+    white-space: pre;
+    display: inline-block;
+    color: white;
+}
+
+#share-card { min-width: 200px; background-color: #111827 !important; }
+
+/* --------------- Dark mode: table header colour bands --------------- */
+.head-dist  { background-color: #e0f2fe; color: #0369a1; }
+.head-strat { background-color: #f3e8ff; color: #7e22ce; }
+.head-track { background-color: #ffedd5; color: #c2410c; }
+.head-course { background-color: #dcfce7; color: #166534; }
+
+body.dark .head-dist   { background-color: #1e3a8a; color: #60a5fa; }
+body.dark .head-strat  { background-color: #581c87; color: #a78bfa; }
+body.dark .head-track  { background-color: #9a3412; color: #fb923c; }
+body.dark .head-course { background-color: #064e3b; color: #34d399; }
+
+body.dark .name-col { background-color: #374151; color: #9ca3af; }
+
+/* --------------- Dark mode: buttons --------------- */
+body.dark .btn-primary   { background-color: var(--uma-green); }
+body.dark .btn-secondary { background-color: var(--uma-red); }
+body.dark .btn-easy      { background-color: #3b82f6; }
+body.dark .btn-hard      { background-color: #374151; }
+
+/* --------------- Dark mode: theme toggle icons --------------- */
+.theme-toggle .sun-icon  { display: block; }
+.theme-toggle .moon-icon { display: none; }
+body.dark .theme-toggle .sun-icon  { display: none; }
+body.dark .theme-toggle .moon-icon { display: block; }
+
+body.dark .theme-toggle           { border-color: #64748b; color: #94a3b8; }
+body.dark .theme-toggle:hover     { background-color: #334155; }
+
+/* --------------- Dark mode: stats modal --------------- */
+body.dark #stats-modal > div               { background-color: #1e293b; color: #e2e8f0; }
+body.dark #stats-modal .text-gray-800      { color: #e2e8f0; }
+body.dark #stats-modal .border-t           { border-color: #334155; }
+body.dark #stats-modal .text-gray-400      { color: #64748b; }
+body.dark #stats-modal .text-gray-300      { color: #475569; }
+
+/* --------------- Dark mode: leaderboard modal --------------- */
+body.dark #leaderboard-modal > div          { background-color: #1e293b; color: #e2e8f0; }
+body.dark #leaderboard-modal .text-gray-800 { color: #e2e8f0; }
+body.dark #leaderboard-modal .bg-gray-50    { background-color: #0f172a; }
+body.dark #leaderboard-modal .border-gray-100 { border-color: #334155; }
+body.dark #leaderboard-modal .text-gray-400 { color: #64748b; }
+body.dark #leaderboard-modal .bg-gray-100   { background-color: #0f172a; }
+body.dark #leaderboard-modal .text-gray-500 { color: #94a3b8; }
+body.dark #leaderboard-modal .bg-yellow-50  { background-color: #1c1917; border-color: #713f12; }
+body.dark #leaderboard-modal .text-yellow-700 { color: #fbbf24; }
+body.dark #leaderboard-modal .bg-yellow-100 { background-color: #292524; }
+body.dark #leaderboard-modal .border-yellow-300 { border-color: #92400e; }
+
+/* --------------- Dark mode: username modal --------------- */
+body.dark #username-modal > div            { background-color: #1e293b; color: #e2e8f0; }
+body.dark #username-modal .bg-green-50     { background-color: #14532d; border-color: #166534; color: #bbf7d0; }
+body.dark #username-modal input            { background-color: #0f172a; border-color: #334155; color: #e2e8f0; }
+body.dark #username-modal input::placeholder { color: #64748b; }
+body.dark #username-modal label            { color: #94a3b8; }
+
+/* --------------- Dark mode: icon buttons --------------- */
+body.dark .icon-btn       { border-color: #64748b; color: #94a3b8; background-color: transparent; }
+body.dark .icon-btn:hover { background-color: #334155; border-color: #94a3b8; color: #e2e8f0; }
+
+/* --------------- Dark mode: wallpaper modal --------------- */
+body.dark .wallpaper-modal-card    { background-color: #1e293b; }
+body.dark .wallpaper-modal-title   { color: #f1f5f9; }
+body.dark .wallpaper-modal-close:hover { color: #f1f5f9; }
+body.dark .wallpaper-section-label { color: #94a3b8; }
+
+body.dark .wallpaper-upload-zone {
+    border-color: #334155; color: #94a3b8; background-color: #0f172a;
+}
+body.dark .wallpaper-upload-zone:hover {
+    border-color: #22c55e; color: #4ade80; background-color: #052e16;
+}
+body.dark .wallpaper-upload-hint { color: #64748b; }
+
+body.dark .wallpaper-url-field {
+    border-color: #334155; color: #f1f5f9; background-color: #0f172a;
+}
+body.dark .wallpaper-url-field::placeholder { color: #475569; }
+
+body.dark .wallpaper-remove-btn       { border-color: #334155; color: #64748b; }
+body.dark .wallpaper-remove-btn:hover { border-color: #f87171; color: #ef4444; }
+
+/* --------------- Dark mode: overflow dropdown --------------- */
+body.dark .overflow-dropdown  { background: rgba(30,41,59,0.97); border-color: #334155; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+body.dark .overflow-item      { color: #cbd5e1; }
+body.dark .overflow-item:hover { background: #1e293b; color: #f1f5f9; }
+
+/* --------------- Dark mode: save-transfer modal --------------- */
+body.dark #save-transfer-inner { background-color: #1e293b; color: #e2e8f0; }
+body:not(.dark) #save-transfer-inner {
+    background-color: rgba(255,255,255,0.96);
+    color: #111827;
+    box-shadow: 0 24px 60px rgba(15,23,42,0.12);
+}
+body.dark .st-header       { border-bottom-color: #334155; }
+body.dark .st-title        { color: #f1f5f9; }
+body.dark .st-close-btn:hover { color: #f1f5f9; }
+body.dark .st-tabs         { border-bottom-color: #334155; }
+body.dark .st-tab:hover    { color: #f1f5f9; }
+body.dark .st-tab--active  { color: #4ade80; border-bottom-color: #4ade80; }
+body.dark .st-desc         { color: #94a3b8; }
+body.dark .st-code-pill    { background: #0f172a; border-color: #334155; }
+body.dark #st-code-display { color: #f1f5f9; }
+body.dark .st-code-input {
+    background: #0f172a; border-color: #334155; color: #f1f5f9;
+}
+body.dark .st-code-input:focus { border-color: #4ade80; box-shadow: 0 0 0 3px rgba(74,222,128,0.15); }
+body.dark .st-code-note { color: #64748b; }
+body.dark .st-divider   { background: #334155; }
+body.dark .st-warn      { color: #64748b; }
+
+/* --------------- Dark mode: about modal --------------- */
+body.dark #about-modal-inner              { background-color: #1e293b; color: #e2e8f0; }
+body:not(.dark) #about-modal-inner {
+    background-color: rgba(255, 255, 255, 0.96);
+    color: #111827;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+body.dark .about-header        { border-bottom-color: #334155; }
+body.dark .about-title         { color: #f1f5f9; }
+body.dark .about-close-btn:hover { color: #f1f5f9; }
+body.dark .about-intro-card    { background-color: rgba(22, 163, 74, 0.12); border-color: rgba(22, 163, 74, 0.3); }
+body.dark .about-intro-card-title { color: #86efac; }
+body.dark .about-section-label { color: #4ade80; }
+body.dark .about-card          { background: #0f172a; border-color: #334155; }
+body.dark .about-legal-card    { background: #0f172a; border-color: #1e293b; }
+body.dark .about-muted         { color: #94a3b8; }
+body.dark .about-source-link   { background: #0f172a; border-color: #334155; color: #e2e8f0; }
+body.dark .about-source-link:hover { border-color: #4ade80; background: rgba(22, 163, 74, 0.08); }
+body.dark .about-link-arrow    { color: #4ade80; }
+body.dark .about-footer        { border-top-color: #334155; }
+
+/* --------------- Dark mode: intro overlay --------------- */
+body.dark .intro-overlay { background: rgba(15, 23, 42, 0.94); }
+
+/* --------------- Dark mode: footer --------------- */
+body.dark footer p.text-gray-400  { color: #64748b; }
+body.dark footer p.text-green-700 { color: #10b981; }
+
+/* --------------- Dark mode: glassmorphism menu --------------- */
+body:not(.dark) #menu-screen {
+    background-color: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(18px) saturate(1.6);
+    -webkit-backdrop-filter: blur(18px) saturate(1.6);
+    color: #1f2937;
+    border: 1px solid rgba(255,255,255,0.55);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+}
+
+body.dark #menu-screen {
+    background-color: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    color: #e2e8f0;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+}
+
+/* dark menu text colour — background handled by the glass rule above */
+body.dark #menu-screen { color: #e2e8f0; }
+
+body:not(.dark) #menu-screen .flex.bg-gray-100 { background: rgba(243, 244, 246, 0.55) !important; }
+body.dark       #menu-screen .flex.bg-gray-100 { background: rgba(30, 41, 59, 0.55)    !important; }
+
+body:not(.dark) #yesterday-info { background: rgba(249, 250, 251, 0.60); border-color: rgba(209, 213, 219, 0.50); }
+body.dark       #yesterday-info { background: rgba(30, 41, 59, 0.55);    border-color: rgba(75, 85, 99, 0.45);    }
+
+body:not(.dark) #menu-screen footer { border-color: rgba(209, 213, 219, 0.45); }
+body.dark       #menu-screen footer { border-color: rgba(51, 65, 85, 0.55);    }
+
+/* --------------- Dark mode: streak banner --------------- */
+body.dark #loss-streak-banner   { background: #1e293b; border-color: #334155; }
+body.dark .streak-banner-label  { color: #94a3b8; }
+body.dark .streak-banner-score  { color: #e2e8f0; }
+body.dark .streak-banner-sub    { color: #64748b; }
+
+/* --------------- Dark mode: stats section pills --------------- */
+body.dark .stats-section       { background: #1e293b; border-color: #334155; }
+body.dark .stats-section-title { color: #94a3b8; }
+body.dark .stats-pill          { background: #0f172a; border-color: #1e3a3a; }
+body.dark .stats-pill-blue     { border-color: #1e3a5f; }
+body.dark .stats-pill-red      { border-color: #450a0a; }
+body.dark .stats-pill-dark     { border-color: #374151; background: #111827; }
+body.dark .stats-pill-value    { color: #f1f5f9; }
+
+/* --------------- Dark mode: result stat pills --------------- */
+body.dark .result-stat-pill       { background: #1e293b; border-color: #334155; }
+body.dark .result-stat-pill-label { color: #64748b; }
+body.dark .result-stat-pill-value { color: #f1f5f9; }
+body.dark .result-target-thumb    { background: #334155; }
+
+/* --------------- Dark mode: game toolbar --------------- */
+body.dark #game-toolbar { background: rgba(15, 23, 42, 0.95); border-bottom-color: #064e3b; }
+
+/* --------------- Dark mode: guesses table --------------- */
+body.dark #guesses { background-color: rgba(15, 23, 42, 0.85); }

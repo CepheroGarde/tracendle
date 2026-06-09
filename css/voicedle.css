@@ -1,0 +1,566 @@
+/* ============================================================
+   voicedle.css — Voicedle game mode: player card, waveform,
+                  timeline, steps, guess history, result panel
+   ============================================================ */
+
+/* --------------- Panel container --------------- */
+.voicedle-panel:not(.hidden) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* --------------- Player card --------------- */
+.voicedle-player-card {
+    width: 100%;
+    border-radius: 1.25rem;
+    padding: 1rem 1.1rem 1.1rem;
+    background:
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(52, 211, 153, 0.2), transparent 55%),
+        linear-gradient(165deg, #064e3b 0%, #0f172a 48%, #1e293b 100%);
+    border: 1px solid rgba(52, 211, 153, 0.4);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+        0 12px 40px rgba(6, 78, 59, 0.35),
+        0 4px 16px rgba(0, 0, 0, 0.25);
+    color: #d1fae5;
+}
+
+body:not(.dark) .voicedle-player-card {
+    background:
+        radial-gradient(ellipse 120% 80% at 50% -20%, rgba(34, 197, 94, 0.18), transparent 55%),
+        linear-gradient(165deg, #ffffff 0%, #ecfdf5 45%, #f0fdf4 100%);
+    border-color: rgba(21, 128, 61, 0.45);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.9) inset,
+        0 12px 32px rgba(22, 163, 74, 0.12),
+        0 4px 12px rgba(15, 23, 42, 0.06);
+    color: #14532d;
+}
+
+.voicedle-player-card--playing {
+    border-color: rgba(74, 222, 128, 0.75);
+    box-shadow:
+        0 0 0 1px rgba(74, 222, 128, 0.25) inset,
+        0 0 28px rgba(34, 197, 94, 0.28),
+        0 12px 40px rgba(6, 78, 59, 0.35);
+}
+
+/* --------------- Top row (badge + time) --------------- */
+.voicedle-player-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.voicedle-player-badge {
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.22);
+    border: 1px solid rgba(52, 211, 153, 0.45);
+    color: #a7f3d0;
+}
+
+body:not(.dark) .voicedle-player-badge {
+    background: rgba(22, 163, 74, 0.12);
+    border-color: rgba(21, 128, 61, 0.35);
+    color: #15803d;
+}
+
+.voicedle-time-display {
+    font-size: 0.8rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: #6ee7b7;
+}
+body:not(.dark) .voicedle-time-display { color: #15803d; }
+
+/* --------------- Stage (waveform area) --------------- */
+.voicedle-player-stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5.5rem;
+    margin-bottom: 0.85rem;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+body:not(.dark) .voicedle-player-stage {
+    background: rgba(22, 163, 74, 0.08);
+    border-color: rgba(21, 128, 61, 0.2);
+}
+
+/* --------------- Waveform bars --------------- */
+.voicedle-wave {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 3.5rem;
+    pointer-events: none;
+}
+
+.voicedle-wave-bar {
+    width: 4px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #6ee7b7, #059669);
+    height: 18%;
+    opacity: 0.45;
+    transform-origin: center bottom;
+    transition: height 0.15s ease, opacity 0.15s ease;
+}
+
+body:not(.dark) .voicedle-wave-bar { background: linear-gradient(180deg, #4ade80, #16a34a); }
+
+.voicedle-player-card--playing .voicedle-wave-bar {
+    opacity: 0.85;
+    animation: voicedle-wave-dance 0.55s ease-in-out infinite alternate;
+}
+.voicedle-player-card--playing .voicedle-wave-bar:nth-child(odd)  { animation-duration: 0.42s; }
+.voicedle-player-card--playing .voicedle-wave-bar:nth-child(3n)   { animation-duration: 0.68s; }
+
+/* --------------- Play button --------------- */
+.voicedle-play-btn {
+    position: relative;
+    z-index: 2;
+    width: 4.25rem;
+    height: 4.25rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: linear-gradient(145deg, #22c55e, var(--uma-green));
+    box-shadow:
+        0 0 0 4px rgba(52, 211, 153, 0.25),
+        0 8px 24px rgba(21, 128, 61, 0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.voicedle-play-btn:hover:not(:disabled) {
+    transform: scale(1.06);
+    box-shadow:
+        0 0 0 5px rgba(74, 222, 128, 0.35),
+        0 10px 28px rgba(21, 128, 61, 0.55);
+}
+.voicedle-play-btn:active:not(:disabled) { transform: scale(0.98); }
+
+.voicedle-player-card--playing .voicedle-play-btn {
+    background: linear-gradient(145deg, #4ade80, #15803d);
+    box-shadow:
+        0 0 0 4px rgba(74, 222, 128, 0.35),
+        0 8px 24px rgba(21, 128, 61, 0.5);
+}
+
+.voicedle-play-btn--disabled,
+.voicedle-play-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+.voicedle-play-icon          { width: 1.65rem; height: 1.65rem; }
+.voicedle-play-icon--pause   { display: none; }
+
+.voicedle-player-card--playing .voicedle-play-icon--play  { display: none; }
+.voicedle-player-card--playing .voicedle-play-icon--pause { display: block; }
+
+/* --------------- Timeline --------------- */
+.voicedle-timeline { display: flex; flex-direction: column; gap: 0.5rem; }
+
+/* Volume row */
+.voicedle-volume-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 0.15rem;
+}
+
+.voicedle-volume-label { display: flex; align-items: center; flex-shrink: 0; color: #6ee7b7; cursor: pointer; }
+body:not(.dark) .voicedle-volume-label { color: #15803d; }
+
+.voicedle-volume-icon { width: 1.15rem; height: 1.15rem; }
+
+.voicedle-volume-slider {
+    flex: 1;
+    min-width: 0;
+    height: 6px;
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 999px;
+    outline: none;
+    cursor: pointer;
+}
+body:not(.dark) .voicedle-volume-slider { background: rgba(22, 163, 74, 0.15); }
+
+.voicedle-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #4ade80, #16a34a);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.45);
+}
+
+.voicedle-volume-slider::-moz-range-thumb {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #4ade80, #16a34a);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.45);
+    cursor: pointer;
+}
+
+.voicedle-volume-slider::-moz-range-track {
+    height: 6px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 999px;
+}
+body:not(.dark) .voicedle-volume-slider::-moz-range-track { background: rgba(22, 163, 74, 0.15); }
+
+/* Progress bar */
+.voicedle-progress-wrap {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 999px;
+    overflow: visible;
+}
+body:not(.dark) .voicedle-progress-wrap { background: rgba(22, 163, 74, 0.12); }
+
+.voicedle-progress-unlock {
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%;
+    width: 25%;
+    background: rgba(52, 211, 153, 0.28);
+    border-radius: 999px 0 0 999px;
+    pointer-events: none;
+    transition: width 0.35s ease;
+}
+body:not(.dark) .voicedle-progress-unlock { background: rgba(34, 197, 94, 0.25); }
+
+.voicedle-progress-bar {
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #4ade80, #16a34a);
+    border-radius: 999px;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.45);
+    transition: width 0.05s linear;
+    z-index: 1;
+}
+
+.voicedle-segment-markers { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+
+.voicedle-segment-mark {
+    position: absolute;
+    top: 50%;
+    width: 2px; height: 14px;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 1px;
+    transform: translate(-50%, -50%);
+}
+body:not(.dark) .voicedle-segment-mark { background: rgba(21, 128, 61, 0.45); }
+
+/* --------------- Unlock steps --------------- */
+.voicedle-unlock-steps { position: relative; height: 1.6rem; }
+
+.voicedle-step {
+    position: absolute;
+    width: 15%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.25rem 0;
+    border-radius: 0.5rem;
+    color: rgba(255, 255, 255, 0.45);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.voicedle-step[data-tier="0"] { left: 20%; }
+.voicedle-step[data-tier="1"] { left: 40%; }
+.voicedle-step[data-tier="2"] { left: 60%; }
+.voicedle-step[data-tier="3"] { left: 80%; }
+.voicedle-step[data-tier="4"] { left: 100%; transform: translateX(-100%); }
+
+body:not(.dark) .voicedle-step { color: #9ca3af; background: rgba(22, 163, 74, 0.06); }
+
+.voicedle-step--active {
+    color: #a7f3d0;
+    background: rgba(16, 185, 129, 0.2);
+    border-color: rgba(52, 211, 153, 0.45);
+}
+body:not(.dark) .voicedle-step--active { color: #15803d; background: rgba(22, 163, 74, 0.12); border-color: rgba(21, 128, 61, 0.35); }
+
+.voicedle-step--current {
+    color: #fff;
+    background: rgba(21, 128, 61, 0.85);
+    border-color: rgba(110, 231, 183, 0.7);
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.35);
+}
+body:not(.dark) .voicedle-step--current { color: #fff; background: #16a34a; border-color: #15803d; }
+
+.voicedle-step--correct {
+    color: #fff;
+    background: rgba(22, 163, 74, 0.9);
+    border-color: rgba(74, 222, 128, 0.75);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.35);
+}
+body:not(.dark) .voicedle-step--correct { color: #fff; background: #16a34a; border-color: #15803d; box-shadow: 0 0 8px rgba(22, 163, 74, 0.25); }
+
+.voicedle-step--wrong {
+    color: #fff;
+    background: rgba(220, 38, 38, 0.9);
+    border-color: rgba(248, 113, 113, 0.75);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.35);
+}
+body:not(.dark) .voicedle-step--wrong { color: #fff; background: #dc2626; border-color: #b91c1c; box-shadow: 0 0 8px rgba(220, 38, 38, 0.25); }
+
+.voicedle-step--skipped {
+    color: #fff;
+    background: rgba(100, 116, 139, 0.85);
+    border-color: rgba(148, 163, 184, 0.75);
+    box-shadow: 0 0 8px rgba(100, 116, 139, 0.35);
+}
+body:not(.dark) .voicedle-step--skipped { color: #fff; background: #64748b; border-color: #475569; }
+
+/* --------------- Unlock hint & skip button --------------- */
+.voicedle-unlock-hint {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0.65rem 0 0;
+    line-height: 1.4;
+    color: #6b7280;
+}
+body.dark .voicedle-unlock-hint { color: #a7f3d0; }
+
+.voicedle-skip-btn {
+    display: block;
+    width: 100%;
+    margin-top: 0.65rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 0.65rem;
+    border: 1px solid rgba(52, 211, 153, 0.45);
+    background: rgba(0, 0, 0, 0.2);
+    color: #d1fae5;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+.voicedle-skip-btn:hover:not(:disabled)  { background: rgba(16, 185, 129, 0.2); border-color: rgba(110, 231, 183, 0.65); }
+.voicedle-skip-btn:active:not(:disabled) { transform: scale(0.98); }
+.voicedle-skip-btn--disabled,
+.voicedle-skip-btn:disabled              { opacity: 0.45; cursor: not-allowed; }
+
+body:not(.dark) .voicedle-skip-btn { background: rgba(22, 163, 74, 0.08); border-color: rgba(21, 128, 61, 0.35); color: #15803d; }
+body:not(.dark) .voicedle-skip-btn:hover:not(:disabled) { background: rgba(22, 163, 74, 0.14); border-color: rgba(21, 128, 61, 0.5); }
+
+/* --------------- Guess history rows --------------- */
+.voicedle-guess-history { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; }
+
+.voicedle-guess-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    border: 2px solid #e5e7eb;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e293b;
+}
+
+body:not(.dark) .voicedle-guess-row--correct { border-color: #16a34a; background: #f0fdf4; }
+body:not(.dark) .voicedle-guess-row--wrong   { border-color: #ef4444; background: #fef2f2; }
+
+body.dark .voicedle-guess-row          { background: rgba(30, 41, 59, 0.95); border-color: #475569; color: #f8fafc; }
+body.dark .voicedle-guess-row--correct { border-color: #22c55e; background: rgba(22, 101, 52, 0.5);  color: #ecfdf5; }
+body.dark .voicedle-guess-row--wrong   { border-color: #f87171; background: rgba(127, 29, 29, 0.5); color: #fef2f2; }
+
+.voicedle-guess-row--skip { border-color: #94a3b8; background: rgba(51, 65, 85, 0.45); color: #e2e8f0; }
+body:not(.dark) .voicedle-guess-row--skip { border-color: #94a3b8; background: #f1f5f9; color: #475569; }
+
+.voicedle-guess-row--animate { animation: voicedle-guess-in 0.35s ease-out; }
+
+.voicedle-guess-skip-icon { flex-shrink: 0; width: 2.5rem; text-align: center; font-size: 1.25rem; line-height: 1; }
+
+.voicedle-guess-img  { width: 40px; height: 40px; border-radius: 999px; object-fit: cover; flex-shrink: 0; }
+
+.voicedle-guess-name { flex: 1; font-weight: 700; font-size: 0.9rem; color: inherit; }
+
+body:not(.dark) .voicedle-guess-row--correct .voicedle-guess-name { color: #14532d; }
+body:not(.dark) .voicedle-guess-row--wrong   .voicedle-guess-name { color: #7f1d1d; }
+body.dark       #voicedle-guess-history .voicedle-guess-name       { color: #f8fafc; }
+body.dark       .voicedle-guess-row--correct .voicedle-guess-name  { color: #bbf7d0; }
+body.dark       .voicedle-guess-row--wrong   .voicedle-guess-name  { color: #fecaca; }
+body.dark       .voicedle-guess-row--skip    .voicedle-guess-name  { color: #e2e8f0; }
+body:not(.dark) .voicedle-guess-row--skip    .voicedle-guess-name  { color: #475569; }
+
+.voicedle-guess-badge { font-weight: 900; font-size: 1.1rem; }
+
+body:not(.dark) .voicedle-guess-row--correct .voicedle-guess-badge { color: #16a34a; }
+body:not(.dark) .voicedle-guess-row--wrong   .voicedle-guess-badge { color: #ef4444; }
+body.dark       .voicedle-guess-row--correct .voicedle-guess-badge { color: #4ade80; }
+body.dark       .voicedle-guess-row--wrong   .voicedle-guess-badge { color: #f87171; }
+
+/* --------------- Result modal: voicedle card --------------- */
+.voicedle-result-band     { background: linear-gradient(90deg, #15803d, #22c55e, #15803d); }
+.voicedle-result-band--win  { background: linear-gradient(90deg, #16a34a, #4ade80, #15803d); }
+.voicedle-result-band--loss { background: linear-gradient(90deg, #15803d, var(--uma-red), #475569); }
+
+#result-target-card.voicedle-result-card {
+    background:
+        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(34, 197, 94, 0.15), transparent 55%),
+        #f0fdf4;
+}
+
+body.dark #result-target-card.voicedle-result-card {
+    background:
+        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(52, 211, 153, 0.12), transparent 55%),
+        #0f172a;
+}
+
+#result-target-card.voicedle-result-card #target-name,
+#result-target-card.voicedle-result-card .text-green-700 { color: #15803d !important; }
+
+body.dark #result-target-card.voicedle-result-card #target-name,
+body.dark #result-target-card.voicedle-result-card .text-green-700 { color: #6ee7b7 !important; }
+
+#result-target-card.voicedle-result-card #target-label { color: #16a34a; }
+body.dark #result-target-card.voicedle-result-card #target-label { color: #34d399; }
+
+.share-card--voicedle { border-color: rgba(52, 211, 153, 0.4) !important; }
+.share-card--voicedle #share-title-text { color: #4ade80 !important; }
+
+/* --------------- Result panel --------------- */
+.voicedle-result-panel:not(.hidden) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.voicedle-result-play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.65rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(52, 211, 153, 0.45);
+    background: linear-gradient(165deg, #15803d 0%, var(--uma-green) 100%);
+    color: #f0fdf4;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(21, 128, 61, 0.35);
+}
+.voicedle-result-play-btn svg    { width: 1.1rem; height: 1.1rem; flex-shrink: 0; }
+.voicedle-result-play-btn:hover  { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(21, 128, 61, 0.45); }
+body:not(.dark) .voicedle-result-play-btn { background: linear-gradient(165deg, #16a34a 0%, #22c55e 100%); }
+
+.voicedle-result-section { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.voicedle-result-label {
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #15803d;
+}
+body.dark .voicedle-result-label { color: #6ee7b7; }
+
+.voicedle-result-steps { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+.voicedle-result-step {
+    flex: 1 1 auto;
+    min-width: 2.75rem;
+    text-align: center;
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 0.3rem 0.35rem;
+    border-radius: 0.45rem;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+.voicedle-result-step--correct { background: #16a34a; border-color: #15803d; }
+.voicedle-result-step--wrong   { background: #dc2626; border-color: #b91c1c; }
+.voicedle-result-step--skip    { background: #64748b; border-color: #475569; }
+
+.voicedle-result-guesses {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    max-height: 9rem;
+    overflow-y: auto;
+}
+
+.voicedle-result-guess {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.55rem;
+    border-radius: 0.55rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+}
+
+body.dark .voicedle-result-guess { background: rgba(30, 41, 59, 0.9); border-color: #475569; color: #f1f5f9; }
+
+.voicedle-result-guess--correct { border-color: #22c55e; background: #f0fdf4; }
+.voicedle-result-guess--wrong   { border-color: #f87171; background: #fef2f2; }
+.voicedle-result-guess--skip    { border-color: #94a3b8; background: #f1f5f9; color: #475569; }
+
+body.dark .voicedle-result-guess--correct { background: rgba(22, 101, 52, 0.35); color: #bbf7d0; }
+body.dark .voicedle-result-guess--wrong   { background: rgba(127, 29, 29, 0.35); color: #fecaca; }
+body.dark .voicedle-result-guess--skip    { background: rgba(51, 65, 85, 0.5);   color: #e2e8f0; }
+
+.voicedle-result-guess-img  { width: 32px; height: 32px; border-radius: 999px; object-fit: cover; flex-shrink: 0; }
+.voicedle-result-guess-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.voicedle-result-guess-mark { font-weight: 900; flex-shrink: 0; }
+.voicedle-result-guess-icon { width: 2rem; text-align: center; flex-shrink: 0; }
+
+.voicedle-result-summary {
+    margin: 0;
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.5rem 0.65rem;
+    border-radius: 0.55rem;
+    background: rgba(22, 163, 74, 0.08);
+    color: #166534;
+}
+.voicedle-result-summary--win  { background: rgba(22, 163, 74, 0.12); color: #15803d; }
+.voicedle-result-summary--loss { background: rgba(239, 68, 68, 0.1);  color: #b91c1c; }
+
+body.dark .voicedle-result-summary       { background: rgba(52, 211, 153, 0.1);  color: #a7f3d0; }
+body.dark .voicedle-result-summary--win  { background: rgba(22, 163, 74, 0.2);   color: #86efac; }
+body.dark .voicedle-result-summary--loss { background: rgba(239, 68, 68, 0.15);  color: #fca5a5; }

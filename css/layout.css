@@ -1,0 +1,562 @@
+/* ============================================================
+   layout.css — Body, header, screens, table structure,
+                and all responsive breakpoints
+   ============================================================ */
+
+/* --------------- Body --------------- */
+body {
+    background-image: url('images/trace background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.35s ease, color 0.35s ease,
+                background-image 0.35s ease, background-position 0.35s ease;
+    overflow-x: hidden;
+}
+
+/* --------------- Header (glassmorphism, full-width) --------------- */
+header {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px) saturate(1.5);
+    -webkit-backdrop-filter: blur(16px) saturate(1.5);
+    transition: background 0.3s ease;
+
+    /* Re-constrain inner content to 6xl (1152px) */
+    padding-left:  max(1rem, calc((100vw - 1152px) / 2 + 1rem));
+    padding-right: max(1rem, calc((100vw - 1152px) / 2 + 1rem));
+}
+
+body.dark header {
+    background: rgba(15, 23, 42, 0.68);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border-color: #059669;
+}
+
+/* Header icon buttons — light */
+header button[aria-label="Open changelog"],
+header button[aria-label="Toggle theme"],
+header button[aria-label="Open help"],
+header button[aria-label="Open statistics"],
+header button[aria-label="Change wallpaper"],
+header button[aria-label="More options"] {
+    border-color: #6b7280;
+    color: #374151;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+header button[aria-label="Open changelog"]:hover,
+header button[aria-label="Toggle theme"]:hover,
+header button[aria-label="Open help"]:hover,
+header button[aria-label="Open statistics"]:hover,
+header button[aria-label="Change wallpaper"]:hover,
+header button[aria-label="More options"]:hover {
+    background-color: #e5e7eb;
+    border-color: #4b5563;
+    color: #111827;
+}
+
+/* Header icon buttons — dark */
+body.dark header button[aria-label="Open changelog"],
+body.dark header button[aria-label="Toggle theme"],
+body.dark header button[aria-label="Open help"],
+body.dark header button[aria-label="Open statistics"],
+body.dark header button[aria-label="Change wallpaper"],
+body.dark header button[aria-label="More options"] {
+    border-color: #4b5563;
+    color: #cbd5e1;
+    background-color: rgba(30, 41, 59, 0.85);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+body.dark header button[aria-label="Open changelog"]:hover,
+body.dark header button[aria-label="Toggle theme"]:hover,
+body.dark header button[aria-label="Open help"]:hover,
+body.dark header button[aria-label="Open statistics"]:hover,
+body.dark header button[aria-label="Change wallpaper"]:hover,
+body.dark header button[aria-label="More options"]:hover {
+    background-color: #334155;
+    border-color: #64748b;
+    color: #f1f5f9;
+}
+
+/* --------------- Game toolbar --------------- */
+#game-toolbar {
+    position: relative;
+    top: auto;
+    z-index: 10;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 2px solid #d1fae5;
+    border-radius: 0.75rem;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+/* --------------- Game screen --------------- */
+#game-screen {
+    width: 100%;
+    overflow-x: hidden;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* --------------- Input container --------------- */
+#input-container { position: relative; }
+
+/* --------------- Guesses table --------------- */
+#guesses {
+    border: 1.5px solid rgba(16, 185, 129, 0.24);
+    border-radius: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.94);
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    width: 100%;
+    min-width: unset;
+    border-collapse: separate;
+    table-layout: fixed;
+}
+
+#guesses th,
+#guesses td {
+    border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+#guesses thead th:first-child  { border-top-left-radius: 1.5rem; }
+#guesses thead th:last-child   { border-top-right-radius: 1.5rem; }
+#guesses tbody tr:last-child td:first-child { border-bottom-left-radius: 1.5rem; }
+#guesses tbody tr:last-child td:last-child  { border-bottom-right-radius: 1.5rem; }
+
+/* Column widths */
+#guesses .name-col                         { width: 13%; }
+#guesses th:not(.name-col),
+#guesses td:not(.name-col)                 { width: calc(87% / 10); }
+
+#guesses.course-mode .name-col             { width: 18%; }
+#guesses.course-mode th:not(.name-col),
+#guesses.course-mode td:not(.name-col)     { width: calc(82% / 4); }
+
+.cell-group-end { border-right: 2px solid #e5e7eb !important; }
+.clue-row       { opacity: 0.7; filter: grayscale(0.5); }
+
+/* --------------- Images inside guesses table --------------- */
+#guesses img, #guess-grid img {
+    width: 100%;
+    max-width: 80px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+
+#guesses.course-mode .name-col img,
+#guess-grid .course-img {
+    width: 56px !important;
+    height: 56px !important;
+    max-width: 56px !important;
+    max-height: 56px !important;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+/* --------------- Table wrapper --------------- */
+.table-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+    padding-bottom: 8px;
+}
+
+/* --------------- Guess history (share card) --------------- */
+#guess-history {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+#guess-history td {
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    vertical-align: middle;
+}
+
+#guess-history::before {
+    content: "UMAWORDLE RESULT";
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+    color: #2d7a4d;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+#guess-history td img {
+    display: block;
+    width: 10vw;
+    max-width: 48px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* --------------- Result target card --------------- */
+#result-target-card {
+    transition: all 0.3s ease;
+    width: 100%;
+    background: #f8fafc;
+    box-sizing: border-box;
+}
+
+#result-uma-card {
+    position: relative;
+    padding: 20px;
+    background: white;
+}
+
+#result-uma-card::after {
+    content: "UMA-WORDLE";
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 8px;
+    color: #cbd5e1;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#result-modal .p-8 { padding-bottom: 2rem; }
+
+/* --------------- Streak banner --------------- */
+#loss-streak-banner {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.streak-banner-label {
+    display: block;
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.streak-banner-score {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+    line-height: 1.1;
+}
+
+.streak-banner-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* --------------- Z-index stacking --------------- */
+#help-modal,
+#result-modal,
+#archive-modal,
+#wallpaper-modal,
+#leaderboard-modal,
+#stats-modal,
+#changelog-modal { z-index: 10002 !important; }
+
+#username-modal  { z-index: 10003 !important; }
+
+.fixed.inset-0.bg-black { z-index: 10001 !important; }
+
+/* --------------- Modal transition defaults --------------- */
+.modal-overlay,
+.help-modal,
+.result-modal,
+#archive-modal,
+#wallpaper-modal,
+#username-modal,
+#leaderboard-modal,
+#stats-modal,
+#changelog-modal {
+    transition: opacity 0.24s ease, visibility 0.24s ease, transform 0.24s ease;
+}
+
+/* --------------- Shared transition for interactive elements --------------- */
+.help-modal > div,
+.result-modal > div > div,
+#archive-modal > div,
+#wallpaper-modal-inner,
+#username-modal > div,
+#leaderboard-modal > div,
+#stats-modal > div,
+#changelog-modal > div,
+#menu-screen,
+#game-screen,
+#input-container,
+.picker-card,
+header button[aria-label],
+.btn-primary,
+.btn-secondary,
+.btn-easy,
+.btn-hard,
+.theme-toggle {
+    transition: background-color 0.22s ease, color 0.22s ease,
+                transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-easy:hover,
+.btn-hard:hover,
+header button[aria-label]:hover,
+.theme-toggle:hover,
+.picker-card:hover {
+    transform: translateY(-1px);
+}
+
+/* --------------- Buttons base --------------- */
+.btn-primary   { background-color: var(--uma-green); transition: transform 0.1s; }
+.btn-primary:active { transform: scale(0.95); }
+.btn-secondary { background-color: var(--uma-red); }
+.btn-easy      { background-color: #3b82f6; }
+.btn-hard      { background-color: #1a1a1a; }
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* --------------- ≤ 900 px — wordle cells --------------- */
+@media (max-width: 900px) {
+    .wordle-cell {
+        padding: 0.4rem 0.3rem !important;
+        font-size: clamp(9px, 2.2vw, 13px);
+        min-width: 0;
+    }
+    .guess-arrow { font-size: 0.85em; margin-left: 0.05em; }
+}
+
+/* --------------- ≤ 768 px — general --------------- */
+@media (max-width: 768px) {
+    header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-bottom-width: 2px;
+        /* slightly more bottom padding so buttons sit above the border */
+        padding-bottom: calc(1rem + 4px);
+        /* paint above any nearby bars */
+        z-index: 9999;
+    }
+
+    header #stats-summary { font-size: 11px; padding: 4px 10px; }
+
+    /* Ensure header buttons are above bars */
+    header button,
+    header .icon-btn,
+    header .theme-toggle {
+        position: relative;
+        z-index: 10001;
+        background-clip: padding-box;
+    }
+
+    #menu-screen,
+    .help-modal > div,
+    .result-modal > div > div {
+        width: 90%;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    #menu-screen,
+    #game-screen { padding: 1rem; }
+
+    #game-screen {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0.5rem !important;
+    }
+
+    #input-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 0;
+        margin-bottom: 5rem;
+    }
+
+    #autocomplete-list {
+        position: absolute;
+        z-index: 9999;
+        left: 0;
+        right: 0;
+        top: 100%;
+        max-height: 250px;
+        overflow-y: auto;
+        background-color: white;
+        border: 1px solid #d1d5db;
+        border-top: none;
+        border-bottom-left-radius: 0.75rem;
+        border-bottom-right-radius: 0.75rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-easy,
+    .btn-hard,
+    #input-container button,
+    #input-container input { width: 100%; }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-easy,
+    .btn-hard { min-height: 3.5rem; font-size: 1rem; }
+
+    #guess-grid th,
+    #guess-grid td { padding: 0.5rem 0.4rem; }
+
+    #guess-grid { min-width: 100%; }
+
+    #stats-summary { justify-content: center; width: 100%; }
+
+    .share-card { padding: 1rem; font-size: 0.95rem; }
+
+    .stat-tag { padding: 0.55rem 0.75rem; font-size: 0.85rem; }
+
+    .table-wrapper { border-radius: 1rem; overflow-x: hidden; }
+
+    #guesses {
+        min-width: unset;
+        font-size: clamp(8px, 2.5vw, 13px);
+    }
+
+    #guesses th,
+    #guesses td {
+        padding: clamp(2px, 1vw, 8px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #guesses td.wordle-cell { overflow: visible; text-overflow: clip; }
+
+    #guesses img,
+    #guess-grid img {
+        width:     clamp(24px, 6vw, 36px);
+        height:    clamp(24px, 6vw, 36px);
+        max-width: clamp(24px, 6vw, 36px);
+        max-height:clamp(24px, 6vw, 36px);
+    }
+
+    .name-col { min-width: unset; font-size: clamp(8px, 2.2vw, 11px); }
+    #guess-head th { font-size: clamp(7px, 2vw, 10px); }
+
+    #result-target-card { padding: 1rem; }
+
+    .course-mode img {
+        width: 14vw !important;
+        height: 14vw !important;
+        max-width: 65px !important;
+        max-height: 65px !important;
+    }
+
+    #guesses.course-mode td { padding: 4px 2px !important; }
+
+    #guesses.course-mode .name-col img,
+    #guess-grid .course-img {
+        width:     clamp(40px, 10vw, 56px) !important;
+        height:    clamp(40px, 10vw, 56px) !important;
+        max-width: clamp(40px, 10vw, 56px) !important;
+        max-height:clamp(40px, 10vw, 56px) !important;
+    }
+}
+
+/* --------------- ≤ 600 px — course mode overflow --------------- */
+@media (max-width: 600px) {
+    .table-wrapper { overflow-x: auto; }
+}
+
+/* --------------- ≤ 480 px --------------- */
+@media (max-width: 480px) {
+    body { padding: 4px; }
+
+    .guess-card {
+        padding: 8px 4px;
+        width: 98%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .attribute-grid {
+        grid-template-columns: repeat(11, 1fr) !important;
+        gap: 1px;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .stat-box {
+        padding: 2px 1px;
+        font-size: 10px;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #guesses {
+        min-width: unset;
+        font-size: clamp(7px, 2.2vw, 11px);
+    }
+
+    #guesses th,
+    #guesses td { padding: clamp(2px, 0.8vw, 5px); }
+
+    #guesses img,
+    #guess-grid img {
+        width:     clamp(20px, 5.5vw, 30px);
+        height:    clamp(20px, 5.5vw, 30px);
+        max-width: clamp(20px, 5.5vw, 30px);
+        max-height:clamp(20px, 5.5vw, 30px);
+    }
+
+    .name-col { min-width: unset; width: 12%; }
+
+    .result-modal-body { padding: 0.75rem 0.9rem 1rem; }
+    .result-target-thumb { width: 50px; height: 50px; }
+    .result-stat-pill { padding: 3px 6px; min-width: 38px; }
+    .result-stat-pill-value { font-size: 12px; }
+
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-pill-value { font-size: 18px; }
+
+    #picker-grid {
+        grid-template-columns: repeat(auto-fill, minmax(62px, 1fr));
+        gap: 5px;
+    }
+    .picker-card-img { width: 60px; height: 60px; }
+}
