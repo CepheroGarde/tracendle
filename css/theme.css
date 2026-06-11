@@ -405,3 +405,28 @@ body.dark #game-toolbar { background: rgba(15, 23, 42, 0.95); border-bottom-colo
 
 /* --------------- Dark mode: guesses table --------------- */
 body.dark #guesses { background-color: rgba(15, 23, 42, 0.85); }
+
+/* ---- PvP Mode Custom Palette Backgrounds ---- */
+.pvp-interface-panel {
+    background: rgba(240, 230, 208, 0.95) !important; /* Parchment bone theme */
+    border: 2px solid #8b6b4a !important;
+    box-shadow: 0 8px 32px rgba(107, 58, 42, 0.15) !important;
+    color: #4a3728 !important;
+}
+body.dark .pvp-interface-panel {
+    background: rgba(26, 16, 8, 0.95) !important; /* Dark sepia/ink theme */
+    border: 2px solid #5a3a20 !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45) !important;
+    color: #d4c4a8 !important;
+}
+
+.pvp-ffa-opponent {
+    background: rgba(240, 230, 208, 0.6) !important;
+    border-color: #8b6b4a !important;
+}
+body.dark .pvp-ffa-opponent {
+    background: rgba(26, 16, 8, 0.6) !important;
+    border-color: #5a3a20 !important;
+}
+
+#pvp-result-modal { z-index: 10005 !important; }
