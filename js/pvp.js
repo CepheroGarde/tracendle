@@ -97,6 +97,43 @@ function isStatePlaying(stateStr) {
   return typeof stateStr === 'string' && stateStr.startsWith('playing');
 }
 
+/**
+ * Returns true only when a player is actively in-game (not backgrounded).
+ * Used to determine whether the round can resolve (both sides must be done,
+ * not just backgrounded).
+ */
+function isStatePlayingActive(stateStr) {
+  return typeof stateStr === 'string' && stateStr.startsWith('playing:');
+}
+
+/**
+ * Computes how stale a heartbeat really is, accounting for any time the player
+ * spent with the tab backgrounded.  If the state is playing_bg:<ts>, the player
+ * paused at <ts> and hasn't come back yet — we forgive that entire elapsed gap so
+ * only pre-background absence counts against the disconnect timer.
+ *
+ * @param {string} stateStr  - e.g. "playing:1718000000000" or "playing_bg:1718000000000"
+ * @returns {number}          - effective milliseconds since last known-active heartbeat
+ */
+function computeEffectiveHeartbeatAge(stateStr) {
+  if (typeof stateStr !== 'string') return Infinity;
+  const now = getServerTime();
+
+  if (stateStr.startsWith('playing_bg:')) {
+    // Player went to background at bgTs.  We only count the age up to that
+    // moment — everything after is forgiven background time.
+    const bgTs = parseInt(stateStr.slice('playing_bg:'.length), 10) || 0;
+    return now - bgTs;
+  }
+
+  if (stateStr.startsWith('playing:')) {
+    const ts = parseInt(stateStr.slice('playing:'.length), 10) || 0;
+    return now - ts;
+  }
+
+  return Infinity;
+}
+
 function parseGuessesArray(guesses) {
   if (Array.isArray(guesses)) return guesses;
   if (typeof guesses === 'string') {
@@ -1103,9 +1140,8 @@ function startBattlePoll() {
         const dynamicHostIdx = players.findIndex(p => {
           if (p.hp <= 0 || p.state === 'exited') return false;
           if (isStatePlaying(p.state)) {
-            const parts = p.state.split(':');
-            const ts = parseInt(parts[1], 10) || 0;
-            if (parts.length === 2 && getServerTime() - ts > PVP_DC_TIMEOUT_MS) {
+            // Use effective age so a backgrounded player isn't wrongly excluded
+            if (computeEffectiveHeartbeatAge(p.state) > PVP_DC_TIMEOUT_MS) {
               return false; // Timed out player cannot be dynamic host
             }
           }
@@ -1119,9 +1155,7 @@ function startBattlePoll() {
             const opp = players[i];
             if (opp.state === 'exited' || opp.hp <= 0) continue;
             if (isStatePlaying(opp.state)) {
-              const parts = opp.state.split(':');
-              const ts = parseInt(parts[1], 10) || 0;
-              if (parts.length === 2 && getServerTime() - ts > PVP_DC_TIMEOUT_MS) {
+              if (computeEffectiveHeartbeatAge(opp.state) > PVP_DC_TIMEOUT_MS) {
                 players[i] = { ...opp, state: 'exited' };
                 stateChanged = true;
               }
@@ -1192,9 +1226,7 @@ function startBattlePoll() {
 
         const opponentState = pvpState.role === 'player1' ? battle.player2_state : battle.player1_state;
         if (isStatePlaying(opponentState)) {
-          const parts = opponentState.split(':');
-          const ts = parseInt(parts[1], 10) || 0;
-          if (parts.length === 2 && getServerTime() - ts > PVP_DC_TIMEOUT_MS) {
+          if (computeEffectiveHeartbeatAge(opponentState) > PVP_DC_TIMEOUT_MS) {
             clearInterval(pvpState.pollTimer);
             clearInterval(pvpState.matchTimer);
             await supabaseClient.from('pvp_battles_uma').update({
@@ -1254,8 +1286,30 @@ function startBattlePoll() {
     if (!pvpState.battleId || sessionState.isGameOver || pvpState.isWaitingForOpponent) return;
 
     if (document.visibilityState === 'hidden') {
+      // Write a "paused" timestamp so opponents can see exactly when we backgrounded.
+      // State format: playing_bg:<backgrounded_at_ms>
+      // This lets the disconnect detector subtract the backgrounded duration before
+      // flagging a disconnect, preventing false-positive forfeits from brief app switches.
       const nowMs = getServerTime();
       pvpState.lastHeartbeatSent = nowMs;
+      if (pvpState.isFFA) {
+        const updated = pvpState.allPlayers.map((p, i) =>
+          i === pvpState.mySlot ? { ...p, state: `playing_bg:${nowMs}` } : p
+        );
+        supabaseClient.from('pvp_battles_uma')
+          .update(buildPlayersPayload(updated))
+          .eq('id', pvpState.battleId).then(() => {});
+      } else {
+        const myStateKey = pvpState.role === 'player1' ? 'player1_state' : 'player2_state';
+        supabaseClient.from('pvp_battles_uma')
+          .update({ [myStateKey]: `playing_bg:${nowMs}` })
+          .eq('id', pvpState.battleId).then(() => {});
+      }
+    } else if (document.visibilityState === 'visible') {
+      // Tab is foregrounded: fire an immediate heartbeat to close the gap and
+      // restart the poll so state is refreshed without waiting for the next tick.
+      pvpState.lastHeartbeatSent = 0; // Force heartbeat on the very next poll tick
+      const nowMs = getServerTime();
       if (pvpState.isFFA) {
         const updated = pvpState.allPlayers.map((p, i) =>
           i === pvpState.mySlot ? { ...p, state: `playing:${nowMs}` } : p
@@ -1269,8 +1323,8 @@ function startBattlePoll() {
           .update({ [myStateKey]: `playing:${nowMs}` })
           .eq('id', pvpState.battleId).then(() => {});
       }
-    } else if (document.visibilityState === 'visible') {
-      pvpState.lastHeartbeatSent = 0;
+      // Restart the poll so it fires immediately rather than waiting for the frozen interval
+      startBattlePoll();
     }
   });
 })();
