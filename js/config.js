@@ -1,1 +1,120 @@
-const a0_0x29ec6c=a0_0x2ebf;(function(_0x5b6d7f,_0x4b42d6){const _0x4361d1=a0_0x2ebf,_0x2c10d6=_0x5b6d7f();while(!![]){try{const _0x502684=parseInt(_0x4361d1(0x1c3))/0x1*(parseInt(_0x4361d1(0x1be))/0x2)+parseInt(_0x4361d1(0x19e))/0x3*(-parseInt(_0x4361d1(0x19f))/0x4)+parseInt(_0x4361d1(0x19b))/0x5*(-parseInt(_0x4361d1(0x19d))/0x6)+-parseInt(_0x4361d1(0x1a2))/0x7+parseInt(_0x4361d1(0x1cc))/0x8*(-parseInt(_0x4361d1(0x1a9))/0x9)+-parseInt(_0x4361d1(0x198))/0xa*(-parseInt(_0x4361d1(0x1a3))/0xb)+-parseInt(_0x4361d1(0x1a0))/0xc*(-parseInt(_0x4361d1(0x1c6))/0xd);if(_0x502684===_0x4b42d6)break;else _0x2c10d6['push'](_0x2c10d6['shift']());}catch(_0xd6c22d){_0x2c10d6['push'](_0x2c10d6['shift']());}}}(a0_0x5b76,0xd4aa8));const SUPABASE_URL=a0_0x29ec6c(0x1cf),SUPABASE_ANON_KEY=a0_0x29ec6c(0x1b7),supabaseClient=supabase['createClient'](SUPABASE_URL,SUPABASE_ANON_KEY);let UMAS=[],COURSES=[],VOICEDLE=[];const RANK_MAP={'S':0x6,'A':0x5,'B':0x4,'C':0x3,'D':0x2,'E':0x1,'F':0x0,'G':-0x1},GRADES=['G','F','E','D','C','B','A','S'],POINTS_PER_TIER=0xc8,DIV_THRESHOLD=0x64,GAME_CONFIG={'uma':{'keys':[a0_0x29ec6c(0x19c),a0_0x29ec6c(0x1cd),'med',a0_0x29ec6c(0x1b3),a0_0x29ec6c(0x1ba),a0_0x29ec6c(0x1af),a0_0x29ec6c(0x1d1),a0_0x29ec6c(0x1c8),'turf',a0_0x29ec6c(0x1c1)],'headers':['Spr',a0_0x29ec6c(0x1c4),a0_0x29ec6c(0x1a6),a0_0x29ec6c(0x1ce),'Fro',a0_0x29ec6c(0x1b6),'Lat',a0_0x29ec6c(0x1b2),a0_0x29ec6c(0x195),'Drt'],'data':()=>UMAS,'placeholder':a0_0x29ec6c(0x196),'resultTitle':a0_0x29ec6c(0x197),'storageKey':a0_0x29ec6c(0x1b4),'helpDesc':a0_0x29ec6c(0x1c0),'shareTitle':a0_0x29ec6c(0x1bd),'sections':[{'title':'Distance','keys':[a0_0x29ec6c(0x19c),a0_0x29ec6c(0x1cd),a0_0x29ec6c(0x1d0),a0_0x29ec6c(0x1b3)],'color':a0_0x29ec6c(0x1ac)},{'title':a0_0x29ec6c(0x1ab),'keys':[a0_0x29ec6c(0x1ba),a0_0x29ec6c(0x1af),a0_0x29ec6c(0x1d1),'end'],'color':a0_0x29ec6c(0x1cb)},{'title':a0_0x29ec6c(0x199),'keys':['turf','dirt'],'color':a0_0x29ec6c(0x1b0)}]},'course':{'keys':[a0_0x29ec6c(0x1c7),a0_0x29ec6c(0x1bf),a0_0x29ec6c(0x1a7),a0_0x29ec6c(0x1c9),a0_0x29ec6c(0x1bc)],'headers':[a0_0x29ec6c(0x1ad),'Surface','Turn',a0_0x29ec6c(0x1aa),a0_0x29ec6c(0x1d2)],'data':()=>COURSES,'placeholder':a0_0x29ec6c(0x1a5),'resultTitle':a0_0x29ec6c(0x1b1),'storageKey':'course_wordle_stats','helpDesc':a0_0x29ec6c(0x1c2),'shareTitle':a0_0x29ec6c(0x1bd),'sections':[{'title':a0_0x29ec6c(0x1a4),'keys':[a0_0x29ec6c(0x1c7),a0_0x29ec6c(0x1bf),'turn','location',a0_0x29ec6c(0x1bc)],'color':a0_0x29ec6c(0x1b5)}]},'voicedle':{'keys':[],'headers':[],'data':()=>VOICEDLE,'placeholder':a0_0x29ec6c(0x1ae),'resultTitle':a0_0x29ec6c(0x197),'storageKey':a0_0x29ec6c(0x1a8),'helpDesc':a0_0x29ec6c(0x1ca),'shareTitle':a0_0x29ec6c(0x1a1),'sections':[]}};let currentGameType=a0_0x29ec6c(0x19a),allPersistentData={'uma':{'dailyStreak':0x0,'easyStreak':0x0,'unlimitedStreak':0x0,'hardStreak':0x0,'lastPlayedDate':null,'dailyGuesses':[],'dailyStatus':'playing','rankedGuesses':[],'rankedStatus':a0_0x29ec6c(0x1b9),'rankedTargetName':null,'unlimitedSession':null,'hardSession':null,'easySession':null,'lbSubmittedKey':null},'course':{'dailyStreak':0x0,'easyStreak':0x0,'unlimitedStreak':0x0,'hardStreak':0x0,'lastPlayedDate':null,'dailyGuesses':[],'dailyStatus':a0_0x29ec6c(0x1b9),'rankedGuesses':[],'rankedStatus':a0_0x29ec6c(0x1b9),'rankedTargetName':null,'unlimitedSession':null,'hardSession':null,'lbSubmittedKey':null},'voicedle':{'dailyStreak':0x0,'easyStreak':0x0,'unlimitedStreak':0x0,'hardStreak':0x0,'lastPlayedDate':null,'dailyGuesses':[],'dailyStatus':a0_0x29ec6c(0x1b9),'rankedGuesses':[],'rankedStatus':a0_0x29ec6c(0x1b9),'rankedTargetName':null,'unlimitedSession':null,'hardSession':null,'easySession':null,'lbSubmittedKey':null}},sessionState={'active':![],'mode':null,'target':null,'guesses':[],'clues':[],'unlimitedScore':0x0,'isGameOver':![],'knownStats':{},'pendingStreakReset':![],'streakAtLoss':0x0,'sessionKey':null,'_leaderboardSynced':![]},currentLbTab=a0_0x29ec6c(0x19a),currentLbType=a0_0x29ec6c(0x1bb),activeLbCategory='normal',activeLbTimeWindow=a0_0x29ec6c(0x1b8),currentStatsTab=a0_0x29ec6c(0x19a);function a0_0x5b76(){const _0x6475f1=['7393551DeJdTA','Course\x20Info','Enter\x20G1\x20Race\x20name...','Med','turn','voicedle_stats','8519616HiBWFL','Location','Strategy','blue','Length','Guess\x20the\x20Umamusume\x20from\x20the\x20voice\x20line...','pace','orange','Winning\x20G1\x20Race','End','long','uma_wordle_stats','green','Pac','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFyamxpaGx1cmdmamRybnJqZWZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxODY2OTMsImV4cCI6MjA5NDc2MjY5M30.SJNQr8lL726tEaba83y6OaNxHZdt2lsdsDZGrXoYC48','weekly','playing','front','dailyStreak','schedule','TRACENDLE','16106mRrhOg','surface','Guess\x20the\x20Umamusume\x20based\x20on\x20their\x20base\x20Aptitudes!','dirt','Guess\x20the\x20G1\x20Race\x20based\x20on\x20its\x20course\x20features!','53eEjfNZ','Mil','1.3.4','24648468ZedXDK','length','end','location','Guess\x20the\x20Umamusume\x20from\x20their\x20voice\x20line!\x20Each\x20wrong\x20guess\x20unlocks\x20more\x20audio.','purple','8zPzFJU','mile','Lon','https://arjlihlurgfjdrnrjefi.supabase.co','med','late','Schedule','Trf','Enter\x20Umamusume\x20name...','Winning\x20Umamusume','10wCTmqT','Track','uma','5gIikOx','sprint','10272162JrrnOx','9NHPxYk','1507452KYoNfj','24HNOPuY','TRACENDLE\x20VOICEDLE','1614914gdLrJG'];a0_0x5b76=function(){return _0x6475f1;};return a0_0x5b76();}function a0_0x2ebf(_0x2def7f,_0x587fc9){_0x2def7f=_0x2def7f-0x195;const _0x5b76bd=a0_0x5b76();let _0x2ebf45=_0x5b76bd[_0x2def7f];return _0x2ebf45;}const CURRENT_VERSION=a0_0x29ec6c(0x1c5);
+// ============================================================
+//  config.js — Constants, game configuration, and shared state
+// ============================================================
+
+const SUPABASE_URL = 'https://arjlihlurgfjdrnrjefi.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFyamxpaGx1cmdmamRybnJqZWZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxODY2OTMsImV4cCI6MjA5NDc2MjY5M30.SJNQr8lL726tEaba83y6OaNxHZdt2lsdsDZGrXoYC48';
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// --------------- Data lists (populated by loadGameData) ---------------
+let UMAS = [];
+let COURSES = [];
+let VOICEDLE = [];
+
+// --------------- Rank map ---------------
+const RANK_MAP = {
+  'S': 6, 'A': 5, 'B': 4, 'C': 3, 'D': 2, 'E': 1, 'F': 0, 'G': -1
+};
+
+const GRADES = ["G", "F", "E", "D", "C", "B", "A", "S"];
+const POINTS_PER_TIER = 200;
+const DIV_THRESHOLD = 100;
+
+// --------------- Game configuration ---------------
+const GAME_CONFIG = {
+  uma: {
+    keys: ['sprint', 'mile', 'med', 'long', 'front', 'pace', 'late', 'end', 'turf', 'dirt'],
+    headers: ['Spr', 'Mil', 'Med', 'Lon', 'Fro', 'Pac', 'Lat', 'End', 'Trf', 'Drt'],
+    data: () => UMAS,
+    placeholder: "Enter Umamusume name...",
+    resultTitle: "Winning Umamusume",
+    storageKey: 'uma_wordle_stats',
+    helpDesc: "Guess the Umamusume based on their base Aptitudes!",
+    shareTitle: "TRACENDLE",
+    sections: [
+      { title: "Distance", keys: ['sprint', 'mile', 'med', 'long'], color: 'blue' },
+      { title: "Strategy", keys: ['front', 'pace', 'late', 'end'], color: 'purple' },
+      { title: "Track",    keys: ['turf', 'dirt'],                  color: 'orange' }
+    ]
+  },
+  course: {
+    keys: ['length', 'surface', 'turn', 'location', 'schedule'],
+    headers: ['Length', 'Surface', 'Turn', 'Location', 'Schedule'],
+    data: () => COURSES,
+    placeholder: "Enter G1 Race name...",
+    resultTitle: "Winning G1 Race",
+    storageKey: 'course_wordle_stats',
+    helpDesc: "Guess the G1 Race based on its course features!",
+    shareTitle: "TRACENDLE",
+    sections: [
+      { title: "Course Info", keys: ['length', 'surface', 'turn', 'location', 'schedule'], color: 'green' }
+    ]
+  },
+  voicedle: {
+    keys: [],
+    headers: [],
+    data: () => VOICEDLE,
+    placeholder: "Guess the Umamusume from the voice line...",
+    resultTitle: "Winning Umamusume",
+    storageKey: 'voicedle_stats',
+    helpDesc: "Guess the Umamusume from their voice line! Each wrong guess unlocks more audio.",
+    shareTitle: "TRACENDLE VOICEDLE",
+    sections: []
+  }
+};
+
+// --------------- Active game type ---------------
+let currentGameType = 'uma';
+
+// --------------- Persistent player data ---------------
+let allPersistentData = {
+  uma: {
+    dailyStreak: 0, easyStreak: 0, unlimitedStreak: 0, hardStreak: 0,
+    lastPlayedDate: null,
+    dailyGuesses: [], dailyStatus: 'playing',
+    rankedGuesses: [], rankedStatus: 'playing', rankedTargetName: null,
+    unlimitedSession: null, hardSession: null, easySession: null, lbSubmittedKey: null
+  },
+  course: {
+    dailyStreak: 0, easyStreak: 0, unlimitedStreak: 0, hardStreak: 0,
+    lastPlayedDate: null,
+    dailyGuesses: [], dailyStatus: 'playing',
+    rankedGuesses: [], rankedStatus: 'playing', rankedTargetName: null,
+    unlimitedSession: null, hardSession: null, lbSubmittedKey: null
+  },
+  voicedle: {
+    dailyStreak: 0, easyStreak: 0, unlimitedStreak: 0, hardStreak: 0,
+    lastPlayedDate: null,
+    dailyGuesses: [], dailyStatus: 'playing',
+    rankedGuesses: [], rankedStatus: 'playing', rankedTargetName: null,
+    unlimitedSession: null, hardSession: null, easySession: null, lbSubmittedKey: null
+  }
+};
+
+// --------------- In-memory session state ---------------
+let sessionState = {
+  active: false,
+  mode: null,
+  target: null,
+  guesses: [],
+  clues: [],
+  unlimitedScore: 0,
+  isGameOver: false,
+  knownStats: {},
+  pendingStreakReset: false,
+  streakAtLoss: 0,
+  sessionKey: null,
+  _leaderboardSynced: false
+};
+
+// --------------- Leaderboard UI state ---------------
+let currentLbTab = 'uma';
+let currentLbType = 'dailyStreak';
+let activeLbCategory = 'normal';
+let activeLbTimeWindow = 'weekly';
+
+// --------------- Stats modal state ---------------
+let currentStatsTab = 'uma';
+
+// --------------- Versioning ---------------
+const CURRENT_VERSION = '1.3.5';
