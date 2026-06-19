@@ -826,6 +826,21 @@
     "end": "A",
     "turf": "A",
     "dirt": "G"
+  },
+
+  {
+    "name": "Air Shakur",
+    "image": "images/uma/Air_Shakur.webp",
+    "sprint": "G",
+    "mile": "E",
+    "med": "A",
+    "long": "A",
+    "front": "G",
+    "pace": "C",
+    "late": "A",
+    "end": "A",
+    "turf": "A",
+    "dirt": "G"
   }
   
   

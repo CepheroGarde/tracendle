@@ -293,5 +293,11 @@
     "name": "Sweep Tosho",
     "image": "images/uma/Sweep_Tosho.webp",
     "voice": "audio/voices/sweeptosho_voice.mp3"
+  },
+
+  {
+    "name": "Air Shakur",
+    "image": "images/uma/Air_Shakur.webp",
+    "voice": "audio/voices/airshakur_voice.mp3"
   }
 ]
