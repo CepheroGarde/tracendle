@@ -841,6 +841,22 @@
     "end": "A",
     "turf": "A",
     "dirt": "G"
+  },
+  
+
+  {
+    "name": "Bambooo Memory",
+    "image": "images/uma/Bamboo_Memory.webp",
+    "sprint": "A",
+    "mile": "A",
+    "med": "C",
+    "long": "G",
+    "front": "G",
+    "pace": "E",
+    "late": "A",
+    "end": "C",
+    "turf": "A",
+    "dirt": "D"
   }
   
   

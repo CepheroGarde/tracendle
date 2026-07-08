@@ -299,5 +299,11 @@
     "name": "Air Shakur",
     "image": "images/uma/Air_Shakur.webp",
     "voice": "audio/voices/airshakur_voice.mp3"
+  },
+
+  {
+    "name": "Bamboo Memory",
+    "image": "images/uma/Bamboo_Memory.webp",
+    "voice": "audio/voices/bamboomemory_voice.mp3"
   }
 ]
