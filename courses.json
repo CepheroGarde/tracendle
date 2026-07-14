@@ -250,5 +250,41 @@
     "turn": "Left ↩",
     "location": "Chukyo",
     "schedule": "L. Mar"
+  },
+  {
+    "name": "Zen-Nippon Junior Yushun",
+    "image": "images/races/Zen-Nippon Junior Yushun.png",
+    "length": "1600",
+    "surface": "Dirt",
+    "turn": "Left ↩",
+    "location": "Kawasaki",
+    "schedule": "L. Dec"
+  },
+  {
+    "name": "Mile Championship Nambu Hai",
+    "image": "images/races/Mile Championship Nambu Hai.png",
+    "length": "1200",
+    "surface": "Dirt",
+    "turn": "Left ↩",
+    "location": "Chukyo",
+    "schedule": "E. Oct"
+  },
+  {
+    "name": "Kawasaki Kinen",
+    "image": "images/races/Kawasaki Kinen.png",
+    "length": "2100",
+    "surface": "Dirt",
+    "turn": "Left ↩",
+    "location": "Kawasaki",
+    "schedule": "E. Feb"
+  },
+  {
+    "name": "Kashiwa Kinen",
+    "image": "images/races/Kashiwa Kinen.png",
+    "length": "1200",
+    "surface": "Dirt",
+    "turn": "Left ↩",
+    "location": "Funabashi",
+    "schedule": "E. May"
   }
 ]
