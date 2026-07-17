@@ -857,6 +857,21 @@
     "end": "C",
     "turf": "A",
     "dirt": "D"
+  },
+
+  {
+    "name": "Copano Rickey",
+    "image": "images/uma/Copano_Rickey.webp",
+    "sprint": "C",
+    "mile": "A",
+    "med": "A",
+    "long": "G",
+    "front": "A",
+    "pace": "A",
+    "late": "C",
+    "end": "G",
+    "turf": "F",
+    "dirt": "A"
   }
   
   

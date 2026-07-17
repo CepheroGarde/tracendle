@@ -305,5 +305,11 @@
     "name": "Bamboo Memory",
     "image": "images/uma/Bamboo_Memory.webp",
     "voice": "audio/voices/bamboomemory_voice.mp3"
+  },
+
+  {
+    "name": "Copano Rickey",
+    "image": "images/uma/Copano_Rickey.webp",
+    "voice": "audio/voices/copanorickey_voice.mp3"
   }
 ]
