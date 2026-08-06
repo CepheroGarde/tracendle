@@ -872,6 +872,21 @@
     "end": "G",
     "turf": "F",
     "dirt": "A"
+  },
+
+  {
+    "name": "Yukino Bijin",
+    "image": "images/uma/Yukino_Bijin.webp",
+    "sprint": "D",
+    "mile": "A",
+    "med": "A",
+    "long": "E",
+    "front": "C",
+    "pace": "A",
+    "late": "F",
+    "end": "G",
+    "turf": "A",
+    "dirt": "B"
   }
   
   

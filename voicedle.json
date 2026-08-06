@@ -311,5 +311,10 @@
     "name": "Copano Rickey",
     "image": "images/uma/Copano_Rickey.webp",
     "voice": "audio/voices/copanorickey_voice.mp3"
+  },
+  {
+    "name": "Yukino Bijin,",
+    "image": "images/uma/Yukino_Bijin.webp",
+    "voice": "audio/voices/yukinobijin_voice.mp3"
   }
 ]
