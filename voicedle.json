@@ -316,5 +316,11 @@
     "name": "Yukino Bijin,",
     "image": "images/uma/Yukino_Bijin.webp",
     "voice": "audio/voices/yukinobijin_voice.mp3"
+  },
+
+  {
+    "name": "Seeking The Pearl,",
+    "image": "images/uma/Seeking_The_Pearl.webp",
+    "voice": "audio/voices/seekingthepearl_voice.mp3"
   }
 ]

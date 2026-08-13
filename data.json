@@ -887,6 +887,21 @@
     "end": "G",
     "turf": "A",
     "dirt": "B"
+  },
+
+  {
+    "name": "Seeking The Pearl",
+    "image": "images/uma/Seeking_The_Pearl.webp",
+    "sprint": "A",
+    "mile": "A",
+    "med": "E",
+    "long": "G",
+    "front": "C",
+    "pace": "A",
+    "late": "E",
+    "end": "G",
+    "turf": "A",
+    "dirt": "F"
   }
   
   
