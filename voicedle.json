@@ -322,5 +322,11 @@
     "name": "Seeking The Pearl,",
     "image": "images/uma/Seeking_The_Pearl.webp",
     "voice": "audio/voices/seekingthepearl_voice.mp3"
+  },
+
+  {
+    "name": "Aston Machan",
+    "image": "images/uma/Aston_Machan.webp",
+    "voice": "audio/voices/astonmachan_voice.mp3"
   }
 ]

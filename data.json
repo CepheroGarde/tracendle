@@ -902,6 +902,21 @@
     "end": "G",
     "turf": "A",
     "dirt": "F"
+  },
+
+  {
+    "name": "Aston Machan",
+    "image": "images/uma/Aston_Machan.webp",
+    "sprint": "A",
+    "mile": "B",
+    "med": "G",
+    "long": "G",
+    "front": "A",
+    "pace": "A",
+    "late": "G",
+    "end": "G",
+    "turf": "A",
+    "dirt": "G"
   }
   
   
