@@ -917,6 +917,21 @@
     "end": "G",
     "turf": "A",
     "dirt": "G"
+  },
+
+  {
+    "name": "Nakayama Festa",
+    "image": "images/uma/Nakayama_Festa.webp",
+    "sprint": "G",
+    "mile": "C",
+    "med": "A",
+    "long": "B",
+    "front": "G",
+    "pace": "A",
+    "late": "A",
+    "end": "D",
+    "turf": "A",
+    "dirt": "G"
   }
   
   

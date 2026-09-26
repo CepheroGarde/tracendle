@@ -328,5 +328,10 @@
     "name": "Aston Machan",
     "image": "images/uma/Aston_Machan.webp",
     "voice": "audio/voices/astonmachan_voice.mp3"
+  },
+  {
+    "name": "Nakayama Festa",
+    "image": "images/uma/Nakayama_Festa.webp",
+    "voice": "audio/voices/nakayamafesta_voice.mp3"
   }
 ]
