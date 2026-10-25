@@ -333,5 +333,23 @@
     "name": "Nakayama Festa",
     "image": "images/uma/Nakayama_Festa.webp",
     "voice": "audio/voices/nakayamafesta_voice.mp3"
+  },
+
+  {
+    "name": "Yamanin Zephyr",
+    "image": "images/uma/Yamanin_Zephyr.webp",
+    "voice": "audio/voices/yamaninzephyr_voice.mp3"
+  },
+
+  {
+    "name": "Wonder Acute",
+    "image": "images/uma/Wonder_Acute.webp",
+    "voice": "audio/voices/wonderacute_voice.mp3"
+  },
+
+  {
+    "name": "Zenno Rob Roy",
+    "image": "images/uma/Zenno_Rob_Roy.webp",
+    "voice": "audio/voices/zennorobroy_voice.mp3.mp3"
   }
 ]

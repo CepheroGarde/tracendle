@@ -932,6 +932,51 @@
     "end": "D",
     "turf": "A",
     "dirt": "G"
+  },
+
+  {
+    "name": "Yamanin Zephyr",
+    "image": "images/uma/Yamamin_Zephyr.webp",
+    "sprint": "B",
+    "mile": "A",
+    "med": "A",
+    "long": "G",
+    "front": "E",
+    "pace": "A",
+    "late": "C",
+    "end": "G",
+    "turf": "A",
+    "dirt": "D"
+  },
+
+  {
+    "name": "Wonder Acute",
+    "image": "images/uma/Wonder_Acute.webp",
+    "sprint": "D",
+    "mile": "A",
+    "med": "A",
+    "long": "E",
+    "front": "C",
+    "pace": "A",
+    "late": "C",
+    "end": "E",
+    "turf": "G",
+    "dirt": "A"
+  },
+
+  {
+    "name": "Zenno Rob Roy",
+    "image": "images/uma/Zenno_Rob_Roy.webp",
+    "sprint": "G",
+    "mile": "E",
+    "med": "A",
+    "long": "A",
+    "front": "G",
+    "pace": "A",
+    "late": "A",
+    "end": "E",
+    "turf": "A",
+    "dirt": "G"
   }
   
   
